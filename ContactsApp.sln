@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactsAppUI", "ContactsAppUI\ContactsAppUI.csproj", "{AEB0D001-59DB-4E72-8886-D6F230C4B513}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactsApp", "ContactsApp\ContactsApp.csproj", "{FEDD4FDA-5EC5-4F42-8C6C-B3AD85D0F510}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AEB0D001-59DB-4E72-8886-D6F230C4B513}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEB0D001-59DB-4E72-8886-D6F230C4B513}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEB0D001-59DB-4E72-8886-D6F230C4B513}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEB0D001-59DB-4E72-8886-D6F230C4B513}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEDD4FDA-5EC5-4F42-8C6C-B3AD85D0F510}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEDD4FDA-5EC5-4F42-8C6C-B3AD85D0F510}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEDD4FDA-5EC5-4F42-8C6C-B3AD85D0F510}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEDD4FDA-5EC5-4F42-8C6C-B3AD85D0F510}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
