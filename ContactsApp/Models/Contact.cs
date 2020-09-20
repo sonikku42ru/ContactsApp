@@ -17,8 +17,16 @@ namespace ContactsApp.Models
         private string _email = "";
         private string _idVk = "";
 
+        /// <summary>
+        /// Свойство "PhoneNumber" хранит в себе номер телефона контакта
+        /// </summary>
         public PhoneNumber PhoneNumber { get; set; } = new PhoneNumber();
 
+        /// <summary>
+        /// Свойство "Birthday" хранит в себе дату рождения контакта. Дата рождения не может быть ранее 1.1.1900
+        /// </summary>
+        /// <exception cref="ArgumentException">Выбрасывается при попытке присвоить дату рождения ранее
+        /// 1.1.1900</exception>
         public DateTime Birthday
         {
             get => _birthday;
@@ -31,6 +39,10 @@ namespace ContactsApp.Models
             }
         }
 
+        /// <summary>
+        /// Свойство "LastName" хранит в себе фамилию контакта.
+        /// </summary>
+        /// <exception cref="ArgumentException">Выбрасывается в случае присвоения слишком длинной фамилии.</exception>
         public string LastName
         {
             get => _lastName;
@@ -44,6 +56,10 @@ namespace ContactsApp.Models
             }
         }
         
+        /// <summary>
+        /// Свойство "FirstName" хранит в себе имя контакта.
+        /// </summary>
+        /// <exception cref="ArgumentException">Выбрасывается в случае присвоения слишком длинного имени.</exception>
         public string FirstName
         {
             get => _firstName;
@@ -57,6 +73,10 @@ namespace ContactsApp.Models
             }
         }
 
+        /// <summary>
+        /// Свойство "Email" хранит в себе E-Mail контакта.
+        /// </summary>
+        /// <exception cref="ArgumentException">Выбрасывается в случае присвоения слишком длинного E-Mail.</exception>
         public string Email
         {
             get => _email;
@@ -70,6 +90,10 @@ namespace ContactsApp.Models
             }
         }
 
+        /// <summary>
+        /// Свойство "IdVk" хранит в себе VK ID контакта.
+        /// </summary>
+        /// <exception cref="ArgumentException">Выбрасывается в случае присвоения слишком длинного VK ID.</exception>
         public string IdVk
         {
             get => _idVk;
@@ -83,6 +107,11 @@ namespace ContactsApp.Models
             }
         }
 
+        /// <summary>
+        /// Проверяет корректность текстового значения: оно не должно быть null или длиннее максимально допустимой длины
+        /// </summary>
+        /// <param name="text">Текстовое значение</param>
+        /// <returns>TRUE, если значение корректно, иначе FALSE.</returns>
         private static bool TextIsCorrect(string text)
         {
             return text != null && text.Length <= MaxTextLength;

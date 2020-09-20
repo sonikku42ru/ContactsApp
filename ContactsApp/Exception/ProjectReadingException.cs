@@ -4,7 +4,7 @@
     {
         public string Path { get; }
 
-        public ProjectReadingException(System.Exception ex,string path) : base(ex.Message)
+        public ProjectReadingException(System.Exception ex, string path) : base(ex.Message)
         {
             Path = path;
         }
