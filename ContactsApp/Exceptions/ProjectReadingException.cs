@@ -1,4 +1,4 @@
-﻿namespace ContactsApp.Exception
+﻿namespace ContactsApp.Exceptions
 {
     public class ProjectReadingException : System.Exception
     {
