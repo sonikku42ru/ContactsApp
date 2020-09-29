@@ -11,6 +11,7 @@ namespace ContactsAppUI
         [STAThread]
         static void Main()
         {
+            throw new Exception();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());

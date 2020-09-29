@@ -26,7 +26,6 @@ namespace ContactsApp
             {
                 // Создание папки приложения в случае её отсутствия
                 Directory.CreateDirectory(AppDirectory);
-
                 // Открытие потока
                 FileStream fstream = File.Open(ContactsDataFile, FileMode.OpenOrCreate);
                 // Создание массива байт размером в читаемый файл
