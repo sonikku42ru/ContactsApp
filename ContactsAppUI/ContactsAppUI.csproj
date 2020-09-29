@@ -46,16 +46,25 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="Form1.cs">
-            <SubType>Form</SubType>
+        <Compile Include="Assets\ImageAssets.Designer.cs">
+          <DesignTime>True</DesignTime>
+          <AutoGen>True</AutoGen>
+          <DependentUpon>ImageAssets.resx</DependentUpon>
         </Compile>
-        <Compile Include="Form1.Designer.cs">
-            <DependentUpon>Form1.cs</DependentUpon>
+        <Compile Include="ContactsForm.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="ContactsForm.Designer.cs">
+          <DependentUpon>ContactsForm.cs</DependentUpon>
         </Compile>
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
-        <EmbeddedResource Include="Form1.resx">
-          <DependentUpon>Form1.cs</DependentUpon>
+        <EmbeddedResource Include="Assets\ImageAssets.resx">
+          <Generator>ResXFileCodeGenerator</Generator>
+          <LastGenOutput>ImageAssets.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Include="ContactsForm.resx">
+          <DependentUpon>ContactsForm.cs</DependentUpon>
         </EmbeddedResource>
         <EmbeddedResource Include="Properties\Resources.resx">
             <Generator>ResXFileCodeGenerator</Generator>
@@ -84,6 +93,11 @@
         <Project>{fedd4fda-5ec5-4f42-8c6c-b3ad85d0f510}</Project>
         <Name>ContactsApp</Name>
       </ProjectReference>
+    </ItemGroup>
+    <ItemGroup>
+      <Content Include="Assets\Add.png" />
+      <Content Include="Assets\Delete.png" />
+      <Content Include="Assets\Edit.png" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
