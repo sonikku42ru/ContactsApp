@@ -51,10 +51,16 @@
           <AutoGen>True</AutoGen>
           <DependentUpon>ImageAssets.resx</DependentUpon>
         </Compile>
-        <Compile Include="ContactsForm.cs">
+        <Compile Include="Forms\AboutForm.cs">
           <SubType>Form</SubType>
         </Compile>
-        <Compile Include="ContactsForm.Designer.cs">
+        <Compile Include="Forms\AboutForm.Designer.cs">
+          <DependentUpon>AboutForm.cs</DependentUpon>
+        </Compile>
+        <Compile Include="Forms\ContactsForm.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="Forms\ContactsForm.Designer.cs">
           <DependentUpon>ContactsForm.cs</DependentUpon>
         </Compile>
         <Compile Include="Program.cs" />
@@ -63,7 +69,10 @@
           <Generator>ResXFileCodeGenerator</Generator>
           <LastGenOutput>ImageAssets.Designer.cs</LastGenOutput>
         </EmbeddedResource>
-        <EmbeddedResource Include="ContactsForm.resx">
+        <EmbeddedResource Include="Forms\AboutForm.resx">
+          <DependentUpon>AboutForm.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Forms\ContactsForm.resx">
           <DependentUpon>ContactsForm.cs</DependentUpon>
         </EmbeddedResource>
         <EmbeddedResource Include="Properties\Resources.resx">

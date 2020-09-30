@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace ContactsAppUI
+namespace ContactsAppUI.Forms
 {
-    public partial class ContactsForm : Form
+    public partial class AboutForm : Form
     {
-        public ContactsForm()
+        public AboutForm()
         {
             InitializeComponent();
         }
