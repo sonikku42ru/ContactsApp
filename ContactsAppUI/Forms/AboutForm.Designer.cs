@@ -169,6 +169,7 @@ namespace ContactsAppUI.Forms
             this.ClientSize = new System.Drawing.Size(384, 211);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.label_AppName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximumSize = new System.Drawing.Size(400, 250);
             this.MinimumSize = new System.Drawing.Size(400, 250);
             this.Name = "AboutForm";

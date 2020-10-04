@@ -198,6 +198,7 @@ namespace ContactsAppUI.Forms
                 ((System.Windows.Forms.AnchorStyles) (((System.Windows.Forms.AnchorStyles.Top |
                                                         System.Windows.Forms.AnchorStyles.Bottom) |
                                                        System.Windows.Forms.AnchorStyles.Left)));
+            this.button_RemoveContact.BackgroundImage = global::ContactsAppUI.Assets.ImageAssets.Delete;
             this.button_RemoveContact.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button_RemoveContact.Location = new System.Drawing.Point(86, 2);
             this.button_RemoveContact.Margin = new System.Windows.Forms.Padding(2);
@@ -212,6 +213,7 @@ namespace ContactsAppUI.Forms
                 ((System.Windows.Forms.AnchorStyles) (((System.Windows.Forms.AnchorStyles.Top |
                                                         System.Windows.Forms.AnchorStyles.Bottom) |
                                                        System.Windows.Forms.AnchorStyles.Left)));
+            this.button_EditContact.BackgroundImage = global::ContactsAppUI.Assets.ImageAssets.Edit;
             this.button_EditContact.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button_EditContact.Location = new System.Drawing.Point(44, 2);
             this.button_EditContact.Margin = new System.Windows.Forms.Padding(2);
@@ -226,6 +228,7 @@ namespace ContactsAppUI.Forms
                 ((System.Windows.Forms.AnchorStyles) (((System.Windows.Forms.AnchorStyles.Top |
                                                         System.Windows.Forms.AnchorStyles.Bottom) |
                                                        System.Windows.Forms.AnchorStyles.Left)));
+            this.button_AddContact.BackgroundImage = global::ContactsAppUI.Assets.ImageAssets.Add;
             this.button_AddContact.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button_AddContact.Location = new System.Drawing.Point(2, 2);
             this.button_AddContact.Margin = new System.Windows.Forms.Padding(2);
@@ -277,6 +280,7 @@ namespace ContactsAppUI.Forms
             // 
             // pictureBox_BirthdaysInfo
             // 
+            this.pictureBox_BirthdaysInfo.BackgroundImage = global::ContactsAppUI.Assets.ImageAssets.Info;
             this.pictureBox_BirthdaysInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox_BirthdaysInfo.Location = new System.Drawing.Point(3, 3);
             this.pictureBox_BirthdaysInfo.Name = "pictureBox_BirthdaysInfo";
