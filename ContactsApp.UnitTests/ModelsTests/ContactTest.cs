@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.Cryptography;
 using ContactsApp.Models;
 using NUnit.Framework;
 
@@ -89,6 +90,17 @@ namespace ContactsApp.UnitTests.ModelsTests
         {
             var incorrect = "whatta heck is you goddamn id man can i just pass this mess asap plz i rly need it";
             Assert.Throws<ArgumentException>(() => { _contact.Email = incorrect; });
+        }
+        
+        // Testing phone number
+        
+        [Test(Description = "Positive PhoneNumber getter test")]
+        public void TestPhoneNumberGet_CorrectValue()
+        {
+            var expected = 71234567890;
+            _contact.PhoneNumber = expected;
+            long actual = _contact.PhoneNumber;
+            Assert.AreEqual(expected, actual, "PhoneNumber getter returned unexpected value");
         }
     }
 }

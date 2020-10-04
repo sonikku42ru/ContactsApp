@@ -16,11 +16,16 @@ namespace ContactsApp.Models
         private DateTime _birthday = DateTime.Today;
         private string _email = "";
         private string _idVk = "";
+        private PhoneNumber _phoneNumber = new PhoneNumber();
 
         /// <summary>
         /// Свойство "PhoneNumber" хранит в себе номер телефона контакта
         /// </summary>
-        public PhoneNumber PhoneNumber { get; set; } = new PhoneNumber();
+        public long PhoneNumber
+        {
+            get => _phoneNumber.Number;
+            set => _phoneNumber.Number = value;
+        }
 
         /// <summary>
         /// Свойство "Birthday" хранит в себе дату рождения контакта. Дата рождения не может быть ранее 1.1.1900
