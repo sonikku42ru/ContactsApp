@@ -166,12 +166,12 @@ namespace ContactsAppUI.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 211);
+            this.ClientSize = new System.Drawing.Size(394, 222);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.label_AppName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.MaximumSize = new System.Drawing.Size(400, 250);
-            this.MinimumSize = new System.Drawing.Size(400, 250);
+            this.MaximumSize = new System.Drawing.Size(400, 251);
+            this.MinimumSize = new System.Drawing.Size(400, 251);
             this.Name = "AboutForm";
             this.Text = "AboutForm";
             this.tableLayoutPanel1.ResumeLayout(false);

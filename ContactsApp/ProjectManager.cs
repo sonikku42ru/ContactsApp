@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
@@ -27,7 +28,7 @@ namespace ContactsApp
             // Сериализация данных
             string data = JsonConvert.SerializeObject(Project);
             // Асинхронная запись
-            await FileWorker.SaveFileAsync(Settings.ContactsDataFile, data);
+            await FileWorker.SaveFileAsync(data, Settings.ContactsDataFile);
         }
 
         public async Task Create()

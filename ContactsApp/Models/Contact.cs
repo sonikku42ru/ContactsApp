@@ -120,5 +120,15 @@ namespace ContactsApp.Models
         {
             return text != null && text.Length <= MaxTextLength;
         }
+
+        public bool Equals(Contact other)
+        {
+            return _lastName.Equals(other._lastName) &&
+                   _firstName.Equals(other._firstName) &&
+                   _birthday.Equals(other._birthday) &&
+                   _email.Equals(other._email) &&
+                   _idVk.Equals(other._idVk) &&
+                   _phoneNumber.Equals(other._phoneNumber);
+        }
     }
 }

@@ -42,5 +42,10 @@ namespace ContactsApp.Models
             // Логарифмический способ
             return (int)Math.Ceiling(Math.Log10(Math.Abs(phone) + 0.5));
         }
+
+        public bool Equals(PhoneNumber other)
+        {
+            return Number == other.Number;
+        }
     }
 }

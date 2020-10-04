@@ -37,5 +37,7 @@ namespace ContactsApp.UnitTests
             string actual = await FileWorker.ReadFileAsync(_file);
             Assert.AreEqual(expected, actual, "Written data differs with expected.");
         }
+        
+        
     }
 }
