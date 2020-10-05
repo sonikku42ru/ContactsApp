@@ -13,7 +13,7 @@ namespace ContactsApp.UnitTests
     {
         private Project _project;
         
-        private static readonly string _file = Settings.ContactsDataFile;
+        private static readonly string File = Settings.ContactsDataFile;
         
         [SetUp]
         public void Init()
@@ -47,8 +47,8 @@ namespace ContactsApp.UnitTests
         [TearDown]
         public void DeleteTrash()
         {
-            if (File.Exists(_file))
-                File.Delete(_file);
+            if (System.IO.File.Exists(File))
+                System.IO.File.Delete(File);
         }
         
         [Test(Description = "Trying to load corrupted file")]
@@ -56,7 +56,7 @@ namespace ContactsApp.UnitTests
         {
             Assert.ThrowsAsync<JsonReaderException>(async () =>
             {
-                FileStream stream = File.Open(_file, FileMode.OpenOrCreate);
+                FileStream stream = System.IO.File.Open(File, FileMode.OpenOrCreate);
                 var array = System.Text.Encoding.UTF8.GetBytes("TERRAIN AHEAD PULL UP");
                 stream.Seek(0, SeekOrigin.End);
                 await stream.WriteAsync(array, 0, array.Length);
