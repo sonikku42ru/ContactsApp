@@ -13,7 +13,8 @@ namespace ContactsApp
             try
             {
                 // Открытие потока
-                FileStream fstream = File.Open(path, FileMode.OpenOrCreate);
+                FileStream fstream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite, 
+                    FileShare.ReadWrite, 4096, FileOptions.Asynchronous);
                 // Создание массива байт размером в читаемый файл
                 byte[] bytes = new byte[fstream.Length];
                 // Асинхронное чтение файла и запись считанных байтов в bytes

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Configuration;
+using System.IO;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
@@ -13,6 +14,8 @@ namespace ContactsApp
         {
             // Создание папки приложения в случае её отсутствия
             FileWorker.CreateFolder(Settings.AppDirectory);
+            if (!File.Exists(Settings.ContactsDataFile))
+                await Create();
             // Асинхронное чтение файла
             string data = await FileWorker.ReadFileAsync(Settings.ContactsDataFile);
             // Десериализация полученных данных

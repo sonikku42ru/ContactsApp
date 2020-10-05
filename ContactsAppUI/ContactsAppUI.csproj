@@ -69,8 +69,10 @@
         <Compile Include="Forms\EditForm.Designer.cs">
           <DependentUpon>EditForm.cs</DependentUpon>
         </Compile>
+        <Compile Include="Launcher.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="ViewModels\ContactsViewModel.cs" />
         <EmbeddedResource Include="Assets\ImageAssets.resx">
           <Generator>ResXFileCodeGenerator</Generator>
           <LastGenOutput>ImageAssets.Designer.cs</LastGenOutput>
