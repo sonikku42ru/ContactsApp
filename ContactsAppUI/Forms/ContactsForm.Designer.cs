@@ -145,6 +145,7 @@ namespace ContactsAppUI.Forms
             this.toolStripMenuItem_About.Name = "toolStripMenuItem_About";
             this.toolStripMenuItem_About.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItem_About.Text = "О программе";
+            this.toolStripMenuItem_About.Click += new System.EventHandler(this.toolStripMenuItem_About_Click);
             // 
             // tableLayoutPanel_Left
             // 

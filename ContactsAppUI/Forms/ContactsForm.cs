@@ -29,15 +29,24 @@ namespace ContactsAppUI.Forms
 
         #region Private methods to process data
         
+        /// <summary>
+        /// Первичная привязка списка контактов к контролу ListBox
+        /// </summary>
         private void SetData()
         {
             UpdateData();
+            // Отображение фамилии контакта в списке контактов
             listBox_Contacts.DisplayMember = nameof(Contact.LastName);
         }
 
+        /// <summary>
+        /// Обновление списка контактов в контроле ListBox
+        /// </summary>
         private void UpdateData()
         {
+            // Поиск контактов по введённой строке
             _contacts = new BindingList<Contact>(_contactsViewModel.Find(_query));
+            // Повторная привязка DataSource
             listBox_Contacts.DataSource = _contacts;
         }
         
@@ -92,6 +101,25 @@ namespace ContactsAppUI.Forms
         
         #endregion
         
+        #region Private methods for other actions
+
+        /// <summary>
+        /// Отображение окна "О программе"
+        /// </summary>
+        private void ShowAbout()
+        {
+            // Блокировка формы
+            Enabled = false;
+            var aboutForm = new AboutForm();
+            // Форма будет отключена до тех пор, пока отображается форма "О программе"
+            using (aboutForm)
+                aboutForm.ShowDialog();
+            // Включение формы
+            Enabled = true;
+        }
+        
+        #endregion
+        
         #region UI Events
         
         /// <summary>
@@ -116,8 +144,16 @@ namespace ContactsAppUI.Forms
             UpdateData();
         }
         
-        #endregion
-
+        /// <summary>
+        /// Обработчик события нажатия на кнопку "О программе" в главном меню
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void toolStripMenuItem_About_Click(object sender, EventArgs e)
+        {
+            ShowAbout();
+        }
         
+        #endregion
     }
 }

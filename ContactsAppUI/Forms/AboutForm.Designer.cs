@@ -59,16 +59,16 @@ namespace ContactsAppUI.Forms
             // 
             this.label_Version.Location = new System.Drawing.Point(3, 0);
             this.label_Version.Name = "label_Version";
-            this.label_Version.Size = new System.Drawing.Size(49, 27);
+            this.label_Version.Size = new System.Drawing.Size(78, 29);
             this.label_Version.TabIndex = 1;
             this.label_Version.Text = "Версия:";
             this.label_Version.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label_Author
             // 
-            this.label_Author.Location = new System.Drawing.Point(3, 27);
+            this.label_Author.Location = new System.Drawing.Point(3, 29);
             this.label_Author.Name = "label_Author";
-            this.label_Author.Size = new System.Drawing.Size(49, 27);
+            this.label_Author.Size = new System.Drawing.Size(78, 29);
             this.label_Author.TabIndex = 2;
             this.label_Author.Text = "Автор:";
             this.label_Author.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -79,7 +79,7 @@ namespace ContactsAppUI.Forms
             this.tableLayoutPanel1.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(
-                new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 302F));
+                new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 274F));
             this.tableLayoutPanel1.Controls.Add(this.label_AuthorValue, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label_Version, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label_Author, 0, 1);
@@ -92,75 +92,75 @@ namespace ContactsAppUI.Forms
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(
-                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.tableLayoutPanel1.RowStyles.Add(
-                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.tableLayoutPanel1.RowStyles.Add(
-                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.tableLayoutPanel1.RowStyles.Add(
-                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(358, 104);
+                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(358, 116);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
             // label_AuthorValue
             // 
-            this.label_AuthorValue.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label_AuthorValue.Location = new System.Drawing.Point(59, 27);
+            this.label_AuthorValue.Location = new System.Drawing.Point(87, 29);
             this.label_AuthorValue.Name = "label_AuthorValue";
-            this.label_AuthorValue.Size = new System.Drawing.Size(295, 27);
+            this.label_AuthorValue.Size = new System.Drawing.Size(268, 29);
             this.label_AuthorValue.TabIndex = 6;
             this.label_AuthorValue.Text = "Кушнарёв Артём";
             this.label_AuthorValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label_Email
             // 
-            this.label_Email.Location = new System.Drawing.Point(3, 54);
+            this.label_Email.Location = new System.Drawing.Point(3, 58);
             this.label_Email.Name = "label_Email";
-            this.label_Email.Size = new System.Drawing.Size(49, 23);
+            this.label_Email.Size = new System.Drawing.Size(78, 29);
             this.label_Email.TabIndex = 3;
             this.label_Email.Text = "E-Mail:";
             this.label_Email.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label_GitHub
             // 
-            this.label_GitHub.Location = new System.Drawing.Point(3, 81);
+            this.label_GitHub.Location = new System.Drawing.Point(3, 87);
             this.label_GitHub.Name = "label_GitHub";
-            this.label_GitHub.Size = new System.Drawing.Size(49, 23);
+            this.label_GitHub.Size = new System.Drawing.Size(78, 29);
             this.label_GitHub.TabIndex = 4;
             this.label_GitHub.Text = "GitHub:";
             this.label_GitHub.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label_VersionValue
             // 
-            this.label_VersionValue.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label_VersionValue.Location = new System.Drawing.Point(59, 0);
+            this.label_VersionValue.Location = new System.Drawing.Point(87, 0);
             this.label_VersionValue.Name = "label_VersionValue";
-            this.label_VersionValue.Size = new System.Drawing.Size(295, 27);
+            this.label_VersionValue.Size = new System.Drawing.Size(268, 29);
             this.label_VersionValue.TabIndex = 5;
             this.label_VersionValue.Text = "1.0.0";
             this.label_VersionValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // linkLabel_EmailValue
             // 
-            this.linkLabel_EmailValue.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.linkLabel_EmailValue.Location = new System.Drawing.Point(59, 54);
+            this.linkLabel_EmailValue.Location = new System.Drawing.Point(87, 58);
             this.linkLabel_EmailValue.Name = "linkLabel_EmailValue";
-            this.linkLabel_EmailValue.Size = new System.Drawing.Size(295, 27);
+            this.linkLabel_EmailValue.Size = new System.Drawing.Size(268, 29);
             this.linkLabel_EmailValue.TabIndex = 7;
             this.linkLabel_EmailValue.TabStop = true;
             this.linkLabel_EmailValue.Text = "sonikku@e.tusur.ru";
             this.linkLabel_EmailValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.linkLabel_EmailValue.LinkClicked +=
+                new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_EmailValue_LinkClicked);
             // 
             // linkLabel_GitHubValue
             // 
-            this.linkLabel_GitHubValue.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.linkLabel_GitHubValue.Location = new System.Drawing.Point(59, 81);
+            this.linkLabel_GitHubValue.Location = new System.Drawing.Point(87, 87);
             this.linkLabel_GitHubValue.Name = "linkLabel_GitHubValue";
-            this.linkLabel_GitHubValue.Size = new System.Drawing.Size(295, 27);
+            this.linkLabel_GitHubValue.Size = new System.Drawing.Size(268, 29);
             this.linkLabel_GitHubValue.TabIndex = 8;
             this.linkLabel_GitHubValue.TabStop = true;
             this.linkLabel_GitHubValue.Text = "https://github.com/sonikku42ru/ContactsApp";
             this.linkLabel_GitHubValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.linkLabel_GitHubValue.LinkClicked +=
+                new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_GitHubValue_LinkClicked);
             // 
             // AboutForm
             // 
@@ -169,10 +169,14 @@ namespace ContactsAppUI.Forms
             this.ClientSize = new System.Drawing.Size(394, 222);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.label_AppName);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(400, 251);
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(400, 251);
             this.Name = "AboutForm";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.Text = "AboutForm";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);

@@ -69,6 +69,9 @@
         <Compile Include="Forms\EditForm.Designer.cs">
           <DependentUpon>EditForm.cs</DependentUpon>
         </Compile>
+        <Compile Include="Forms\Abouts.cs">
+          <DependentUpon>AboutForm.cs</DependentUpon>
+        </Compile>
         <Compile Include="Launcher.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
