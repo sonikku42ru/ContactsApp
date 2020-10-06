@@ -21,15 +21,45 @@ namespace ContactsAppUI.ViewModels
 
         public List<Contact> Find(string lastName) => _project.FindSorted(lastName);
 
-        public void AddContact(Contact contact) => _project.Contacts.Add(contact);
+        public void AddContact(Contact contact)
+        {
+            _project.Contacts.Add(contact);
+            int index = _project.Contacts.IndexOf(contact);
+            OnContactsListChanged?.Invoke(this, 
+                new ContactsListChangedEventArgs(index));
+        }
 
-        public void RemoveContact(Contact contact) => _project.Contacts.Remove(contact);
+        public void RemoveContact(Contact contact)
+        {
+            int index = _project.Contacts.IndexOf(contact);
+            _project.Contacts.Remove(contact);
+            OnContactsListChanged?.Invoke(this, new ContactsListChangedEventArgs(index));
+        } 
         
         public void UpdateContact(Contact oldContact, Contact newContact)
         {
             int index = _project.Contacts.IndexOf(oldContact);
             _project.Contacts[index] = newContact;
+            OnContactsListChanged?.Invoke(this, new ContactsListChangedEventArgs(index));
         }
+
+        #region Nested events
+        
+        public delegate void ContactsListChangedHandler(object sender, ContactsListChangedEventArgs e);
+
+        public event ContactsListChangedHandler OnContactsListChanged;
+
+        public class ContactsListChangedEventArgs : EventArgs
+        {
+            public int Index { get; }
+            
+            public ContactsListChangedEventArgs(int index)
+            {
+                Index = index;
+            }
+        }
+        
+        #endregion
 
         public async Task SaveProject(Project project)
         {

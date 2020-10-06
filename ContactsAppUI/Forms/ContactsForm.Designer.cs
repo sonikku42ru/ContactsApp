@@ -257,6 +257,7 @@ namespace ContactsAppUI.Forms
             this.button_RemoveContact.Size = new System.Drawing.Size(37, 37);
             this.button_RemoveContact.TabIndex = 2;
             this.button_RemoveContact.UseVisualStyleBackColor = true;
+            this.button_RemoveContact.Click += new System.EventHandler(this.button_RemoveContact_Click);
             // 
             // button_EditContact
             // 
@@ -287,6 +288,7 @@ namespace ContactsAppUI.Forms
             this.button_AddContact.Size = new System.Drawing.Size(37, 37);
             this.button_AddContact.TabIndex = 0;
             this.button_AddContact.UseVisualStyleBackColor = true;
+            this.button_AddContact.Click += new System.EventHandler(this.button_AddContact_Click);
             // 
             // panel_Right
             // 

@@ -23,11 +23,20 @@ namespace ContactsAppUI.Forms
         {
             InitializeComponent();
             _contactsViewModel = viewModel;
+            BindViewModelEvents();
             SetData();
             SetVisuals();
         }
 
         #region Private methods to process data
+
+        /// <summary>
+        /// Реакция формы на изменение списка контактов во вьюмодели
+        /// </summary>
+        private void BindViewModelEvents()
+        {
+            _contactsViewModel.OnContactsListChanged += (sender, args) => UpdateData();
+        }
         
         /// <summary>
         /// Первичная привязка списка контактов к контролу ListBox
@@ -48,19 +57,30 @@ namespace ContactsAppUI.Forms
             _contacts = new BindingList<Contact>(_contactsViewModel.Find(_query));
             // Повторная привязка DataSource
             listBox_Contacts.DataSource = _contacts;
+            if (listBox_Contacts.Items.Count == 0)
+                SelectContact(-1);
         }
         
+        /// <summary>
+        /// Установка выбранного контакта
+        /// </summary>
+        /// <param name="index">Индекс выбранного контакта в ListBox</param>
         private void SelectContact(int index)
         {
+            // Если выбрано пустое место или индекс превышает фактическое количество контактов
             if (index == -1 || index > _contacts.Count - 1)
             {
                 index = -1;
+                // Стирание детальных данных
                 SwitchDetails(false);
+                SwitchEditButtons(false);
             }
             else
             {
                 _selectedContact = _contacts[index];
+                // Запись и отображение детальных данных
                 SwitchDetails(true);
+                SwitchEditButtons(true);
             }
         }
         
@@ -98,6 +118,14 @@ namespace ContactsAppUI.Forms
             textBox_Email.Text = show ? _selectedContact.Email : "";
             textBox_IdVk.Text = show ? _selectedContact.IdVk : "";
         }
+
+        private void SwitchEditButtons(bool enabled)
+        {
+            button_EditContact.Enabled = enabled;
+            button_RemoveContact.Enabled = enabled;
+            toolStripMenuItem_EditContact.Enabled = enabled;
+            toolStripMenuItem_RemoveContact.Enabled = enabled;
+        }
         
         #endregion
         
@@ -130,6 +158,37 @@ namespace ContactsAppUI.Forms
         private void listBox_Contacts_SelectedIndexChanged(object sender, EventArgs e)
         {
             SelectContact(listBox_Contacts.SelectedIndex);
+        }
+        
+        /// <summary>
+        /// Обработчик события нажатия на кнопку "Добавить контакт"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button_AddContact_Click(object sender, EventArgs e)
+        {
+            _contactsViewModel.AddContact(new Contact()
+            {
+                LastName = "Test",
+                FirstName = "Scientist",
+                Birthday = DateTime.Today,
+                Email = "scientist@yey.ru",
+                IdVk = "scientist",
+                PhoneNumber = 71234567788
+            });
+        }
+
+        /// <summary>
+        /// Обработчик события нажатия на кнопку "Удалить контакт"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button_RemoveContact_Click(object sender, EventArgs e)
+        {
+            int index = listBox_Contacts.SelectedIndex;
+            _contactsViewModel.RemoveContact(_selectedContact);
+            if (index < listBox_Contacts.Items.Count)
+                listBox_Contacts.SelectedIndex = index;
         }
         
         /// <summary>
