@@ -17,6 +17,7 @@ namespace ContactsAppUI.Forms
         
         private BindingList<Contact> _contacts;
         private Contact _selectedContact;
+        private string _query = "";
         
         public ContactsForm(ContactsViewModel viewModel)
         {
@@ -30,9 +31,14 @@ namespace ContactsAppUI.Forms
         
         private void SetData()
         {
-            _contacts = new BindingList<Contact>(_contactsViewModel.GetSortedContacts());
-            listBox_Contacts.DataSource = _contacts;
+            UpdateData();
             listBox_Contacts.DisplayMember = nameof(Contact.LastName);
+        }
+
+        private void UpdateData()
+        {
+            _contacts = new BindingList<Contact>(_contactsViewModel.Find(_query));
+            listBox_Contacts.DataSource = _contacts;
         }
         
         private void SelectContact(int index)
@@ -88,11 +94,30 @@ namespace ContactsAppUI.Forms
         
         #region UI Events
         
+        /// <summary>
+        /// Обработчик события изменения индекса выбранного контакта
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void listBox_Contacts_SelectedIndexChanged(object sender, EventArgs e)
         {
             SelectContact(listBox_Contacts.SelectedIndex);
         }
         
+        /// <summary>
+        /// Обработчик события изменения поисковой строки
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <exception cref="NotImplementedException"></exception>
+        private void textBox_Search_TextChanged(object sender, EventArgs e)
+        {
+            _query = textBox_Search.Text;
+            UpdateData();
+        }
+        
         #endregion
+
+        
     }
 }

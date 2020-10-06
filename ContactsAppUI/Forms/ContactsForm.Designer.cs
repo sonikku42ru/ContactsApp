@@ -195,6 +195,7 @@ namespace ContactsAppUI.Forms
             this.textBox_Search.Name = "textBox_Search";
             this.textBox_Search.Size = new System.Drawing.Size(169, 23);
             this.textBox_Search.TabIndex = 1;
+            this.textBox_Search.TextChanged += new System.EventHandler(this.textBox_Search_TextChanged);
             // 
             // panel_ContactsList
             // 
