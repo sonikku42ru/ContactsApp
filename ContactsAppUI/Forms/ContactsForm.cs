@@ -167,6 +167,7 @@ namespace ContactsAppUI.Forms
         /// <param name="e"></param>
         private void button_AddContact_Click(object sender, EventArgs e)
         {
+            // TODO: Удалить mock и запилить вызов формы редактирования
             _contactsViewModel.AddContact(new Contact()
             {
                 LastName = "Test",
