@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ContactsApp;
 using ContactsAppUI.Forms;
 using ContactsAppUI.ViewModels;
 

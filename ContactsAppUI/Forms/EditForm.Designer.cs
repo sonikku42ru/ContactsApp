@@ -228,7 +228,7 @@ namespace ContactsAppUI.Forms
             this.button_Cancel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.button_Cancel.Location = new System.Drawing.Point(373, 194);
             this.button_Cancel.Name = "button_Cancel";
-            this.button_Cancel.Size = new System.Drawing.Size(80, 28);
+            this.button_Cancel.Size = new System.Drawing.Size(80, 26);
             this.button_Cancel.TabIndex = 1;
             this.button_Cancel.Text = "Отмена";
             this.button_Cancel.UseVisualStyleBackColor = true;
@@ -238,7 +238,7 @@ namespace ContactsAppUI.Forms
             this.button_Ok.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.button_Ok.Location = new System.Drawing.Point(286, 194);
             this.button_Ok.Name = "button_Ok";
-            this.button_Ok.Size = new System.Drawing.Size(80, 28);
+            this.button_Ok.Size = new System.Drawing.Size(80, 26);
             this.button_Ok.TabIndex = 2;
             this.button_Ok.Text = "OK";
             this.button_Ok.UseVisualStyleBackColor = true;
@@ -247,12 +247,12 @@ namespace ContactsAppUI.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(458, 222);
+            this.ClientSize = new System.Drawing.Size(472, 232);
             this.ControlBox = false;
             this.Controls.Add(this.button_Ok);
             this.Controls.Add(this.button_Cancel);
             this.Controls.Add(this.tableLayoutPanel_Edit);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(775, 261);
             this.MinimizeBox = false;

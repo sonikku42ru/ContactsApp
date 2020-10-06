@@ -14,6 +14,12 @@ namespace ContactsAppUI.ViewModels
         {
             _project = await ProjectManager.Current.Load();
         }
+        
+        public async Task SaveProject(Project project)
+        {
+            _project = project;
+            await ProjectManager.Current.Save(_project);
+        }
 
         public List<Contact> GetSortedContacts() => _project.GetSorted();
 
@@ -60,11 +66,5 @@ namespace ContactsAppUI.ViewModels
         }
         
         #endregion
-
-        public async Task SaveProject(Project project)
-        {
-            _project = project;
-            await ProjectManager.Current.Save(_project);
-        }
     }
 }

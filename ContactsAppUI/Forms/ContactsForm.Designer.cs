@@ -273,6 +273,7 @@ namespace ContactsAppUI.Forms
             this.button_EditContact.Size = new System.Drawing.Size(37, 37);
             this.button_EditContact.TabIndex = 1;
             this.button_EditContact.UseVisualStyleBackColor = true;
+            this.button_EditContact.Click += new System.EventHandler(this.button_EditContact_Click);
             // 
             // button_AddContact
             // 

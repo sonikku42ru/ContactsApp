@@ -84,6 +84,26 @@ namespace ContactsAppUI.Forms
             }
         }
         
+        /// <summary>
+        /// Добавление контакта
+        /// </summary>
+        private void AddContact()
+        {
+            (Contact, DialogResult) dialogResult = ShowEditDialog();
+            if (DialogResult == DialogResult.OK)
+                _contactsViewModel.AddContact(dialogResult.Item1);
+        }
+
+        /// <summary>
+        /// Редактирование выбранного контакта
+        /// </summary>
+        private void EditContact()
+        {
+            (Contact, DialogResult) dialogResult = ShowEditDialog(_selectedContact);
+            if (DialogResult == DialogResult.OK)
+                _contactsViewModel.UpdateContact(_selectedContact,dialogResult.Item1);
+        }
+
         #endregion
         
         #region Private methods to update UI
@@ -145,6 +165,25 @@ namespace ContactsAppUI.Forms
             // Включение формы
             Enabled = true;
         }
+
+        /// <summary>
+        /// Отображение формы редактирования контакта
+        /// </summary>
+        /// <param name="contact">Редактируемый контакт. Передать null, если нужно создать новый.</param>
+        /// <returns>Кортеж из Contact и DialogResult</returns>
+        private (Contact, DialogResult) ShowEditDialog(Contact contact = null)
+        {
+            Enabled = false;
+            var editForm = new EditForm(contact ?? new Contact());
+            (Contact, DialogResult) result = (contact, DialogResult.Cancel);
+            using (editForm)
+            {
+                editForm.ShowDialog();
+                result = (editForm.Contact, editForm.DialogResult);
+            }
+            Enabled = true;
+            return result;
+        }
         
         #endregion
         
@@ -160,6 +199,8 @@ namespace ContactsAppUI.Forms
             SelectContact(listBox_Contacts.SelectedIndex);
         }
         
+        // Основные кнопки
+        
         /// <summary>
         /// Обработчик события нажатия на кнопку "Добавить контакт"
         /// </summary>
@@ -167,16 +208,17 @@ namespace ContactsAppUI.Forms
         /// <param name="e"></param>
         private void button_AddContact_Click(object sender, EventArgs e)
         {
-            // TODO: Удалить mock и запилить вызов формы редактирования
-            _contactsViewModel.AddContact(new Contact()
-            {
-                LastName = "Test",
-                FirstName = "Scientist",
-                Birthday = DateTime.Today,
-                Email = "scientist@yey.ru",
-                IdVk = "scientist",
-                PhoneNumber = 71234567788
-            });
+            AddContact();
+        }
+        
+        /// <summary>
+        /// Обработчик события
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button_EditContact_Click(object sender, EventArgs e)
+        {
+            EditContact();
         }
 
         /// <summary>
@@ -191,7 +233,7 @@ namespace ContactsAppUI.Forms
             if (index < listBox_Contacts.Items.Count)
                 listBox_Contacts.SelectedIndex = index;
         }
-        
+
         /// <summary>
         /// Обработчик события изменения поисковой строки
         /// </summary>
