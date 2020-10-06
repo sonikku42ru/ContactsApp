@@ -7,7 +7,7 @@ namespace ContactsApp
 {
     public class Project
     {
-        public List<Contact> Contacts { get; set; } = new List<Contact>();
+        public List<Contact> Contacts { get; } = new List<Contact>();
 
         public List<Contact> GetSorted() => Contacts.OrderBy(i => i.LastName).ToList();
 

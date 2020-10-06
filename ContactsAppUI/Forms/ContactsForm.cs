@@ -26,14 +26,15 @@ namespace ContactsAppUI.Forms
 
         private void SetData()
         {
-            _contacts = new BindingList<Contact>(_contactsViewModel.Project.Contacts);
+            _contacts = new BindingList<Contact>(_contactsViewModel.GetSortedContacts());
             listBox_Contacts.DataSource = _contacts;
             listBox_Contacts.DisplayMember = nameof(Contact.LastName);
         }
 
         private void SetVisuals()
         {
-            List<string> birthdays = _contactsViewModel.Project
+            // Поиск и отображение именинников
+            List<string> birthdays = _contactsViewModel
                 .GetBirthdays(DateTime.Today)
                 .Select(i => i.LastName)
                 .ToList();

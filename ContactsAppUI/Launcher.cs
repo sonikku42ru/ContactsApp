@@ -16,7 +16,7 @@ namespace ContactsAppUI
             var contactsForm = new ContactsForm(contactsViewModel);
             Application.Run(contactsForm);
         }
-        
+
         #region Signleton
         private static readonly Lazy<Launcher> Singleton = new Lazy<Launcher>();
 
