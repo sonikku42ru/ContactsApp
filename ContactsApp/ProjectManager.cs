@@ -8,9 +8,7 @@ namespace ContactsApp
 {
     public class ProjectManager
     {
-        public Project Project { get; private set; }
-
-        public async Task Load()
+        public async Task<Project> Load()
         {
             // Создание папки приложения в случае её отсутствия
             FileWorker.CreateFolder(Settings.AppDirectory);
@@ -19,17 +17,16 @@ namespace ContactsApp
             // Асинхронное чтение файла
             string data = await FileWorker.ReadFileAsync(Settings.ContactsDataFile);
             // Десериализация полученных данных
-            Project = JsonConvert.DeserializeObject<Project>(data);
+            Project project = JsonConvert.DeserializeObject<Project>(data);
+            return project;
         }
 
         public async Task Save(Project project)
         {
-            // Обновление данных
-            Project = project;
             // Создание папки приложения в случае её отсутствия
             FileWorker.CreateFolder(Settings.AppDirectory);
             // Сериализация данных
-            string data = JsonConvert.SerializeObject(Project);
+            string data = JsonConvert.SerializeObject(project);
             // Асинхронная запись
             await FileWorker.SaveFileAsync(data, Settings.ContactsDataFile);
         }

@@ -9,8 +9,13 @@ namespace ContactsAppUI.ViewModels
 
         public async Task LoadProject()
         {
-            await ProjectManager.Current.Load();
-            Project = ProjectManager.Current.Project;
+            Project = await ProjectManager.Current.Load();
+        }
+
+        public async Task SaveProject(Project project)
+        {
+            Project = project;
+            await ProjectManager.Current.Save(Project);
         }
     }
 }
