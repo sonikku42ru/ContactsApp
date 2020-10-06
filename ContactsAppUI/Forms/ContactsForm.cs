@@ -1,4 +1,7 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ContactsApp;
@@ -9,28 +12,38 @@ namespace ContactsAppUI.Forms
 {
     public partial class ContactsForm : Form
     {
-        private readonly ContactsViewModel _contactsViewModel = new ContactsViewModel();
+        private readonly ContactsViewModel _contactsViewModel;
         
-        private BindingList<Contact> _contacts = new BindingList<Contact>();
+        private BindingList<Contact> _contacts;
         
-        public ContactsForm(Project project)
+        public ContactsForm(ContactsViewModel viewModel)
         {
             InitializeComponent();
-            SetUp();
-            SetProject(project);
+            _contactsViewModel = viewModel;
+            SetData();
+            SetVisuals();
         }
 
-        private void SetProject(Project project)
+        private void SetData()
         {
-            _contactsViewModel.Project = project;
             _contacts = new BindingList<Contact>(_contactsViewModel.Project.Contacts);
             listBox_Contacts.DataSource = _contacts;
             listBox_Contacts.DisplayMember = nameof(Contact.LastName);
         }
 
-        private void SetUp()
+        private void SetVisuals()
         {
-            panel_BirthdaysInfo.Visible = false;
+            List<string> birthdays = _contactsViewModel.Project
+                .GetBirthdays(DateTime.Today)
+                .Select(i => i.LastName)
+                .ToList();
+            if (birthdays.Count > 0)
+            {
+                for (int i = 0; i < birthdays.Count - 1; i++)
+                    label_BirthdaysInfo.Text += ' ' + birthdays[i] + ',';
+                label_BirthdaysInfo.Text += ' ' + birthdays[birthdays.Count - 1] + '.';
+                panel_BirthdaysInfo.Visible = true;
+            }
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ContactsApp;
 using ContactsAppUI.Forms;
+using ContactsAppUI.ViewModels;
 
 namespace ContactsAppUI
 {
@@ -10,8 +11,9 @@ namespace ContactsAppUI
     {
         public async Task StartApplication()
         {
-            await ProjectManager.Current.Load();
-            ContactsForm contactsForm = new ContactsForm(ProjectManager.Current.Project);
+            var contactsViewModel = new ContactsViewModel();
+            await contactsViewModel.LoadProject();
+            var contactsForm = new ContactsForm(contactsViewModel);
             Application.Run(contactsForm);
         }
         

@@ -5,18 +5,12 @@ namespace ContactsAppUI.ViewModels
 {
     public class ContactsViewModel
     {
-        private Project _project;
-
-        public Project Project
-        {
-            get => _project;
-            set => _project = value;
-        }
+        public Project Project { get; private set; }
 
         public async Task LoadProject()
         {
             await ProjectManager.Current.Load();
-            _project = ProjectManager.Current.Project;
+            Project = ProjectManager.Current.Project;
         }
     }
 }
