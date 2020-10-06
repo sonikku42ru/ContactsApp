@@ -61,6 +61,11 @@ namespace ContactsAppUI.Forms
             this.textBox_Phone = new System.Windows.Forms.TextBox();
             this.textBox_Email = new System.Windows.Forms.TextBox();
             this.textBox_IdVk = new System.Windows.Forms.TextBox();
+            this.toolStripMenuItem_Exit = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_AddContact = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_EditContact = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_RemoveContact = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_About = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.tableLayoutPanel_Left.SuspendLayout();
             this.panel_ContactsList.SuspendLayout();
@@ -83,18 +88,27 @@ namespace ContactsAppUI.Forms
             // 
             // toolStripMenuItem_File
             // 
+            this.toolStripMenuItem_File.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[]
+                {this.toolStripMenuItem_Exit});
             this.toolStripMenuItem_File.Name = "toolStripMenuItem_File";
             this.toolStripMenuItem_File.Size = new System.Drawing.Size(48, 20);
             this.toolStripMenuItem_File.Text = "Файл";
             // 
             // toolStripMenuItem_Edit
             // 
+            this.toolStripMenuItem_Edit.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[]
+            {
+                this.toolStripMenuItem_AddContact, this.toolStripMenuItem_EditContact,
+                this.toolStripMenuItem_RemoveContact
+            });
             this.toolStripMenuItem_Edit.Name = "toolStripMenuItem_Edit";
             this.toolStripMenuItem_Edit.Size = new System.Drawing.Size(108, 20);
             this.toolStripMenuItem_Edit.Text = "Редактирование";
             // 
             // toolStripMenuItem_Help
             // 
+            this.toolStripMenuItem_Help.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[]
+                {this.toolStripMenuItem_About});
             this.toolStripMenuItem_Help.Name = "toolStripMenuItem_Help";
             this.toolStripMenuItem_Help.Size = new System.Drawing.Size(68, 20);
             this.toolStripMenuItem_Help.Text = "Помощь";
@@ -455,6 +469,39 @@ namespace ContactsAppUI.Forms
             this.textBox_IdVk.Size = new System.Drawing.Size(275, 23);
             this.textBox_IdVk.TabIndex = 11;
             // 
+            // toolStripMenuItem_Exit
+            // 
+            this.toolStripMenuItem_Exit.Name = "toolStripMenuItem_Exit";
+            this.toolStripMenuItem_Exit.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem_Exit.Text = "Выход";
+            // 
+            // toolStripMenuItem_AddContact
+            // 
+            this.toolStripMenuItem_AddContact.Image = global::ContactsAppUI.Assets.ImageAssets.Add;
+            this.toolStripMenuItem_AddContact.Name = "toolStripMenuItem_AddContact";
+            this.toolStripMenuItem_AddContact.Size = new System.Drawing.Size(199, 22);
+            this.toolStripMenuItem_AddContact.Text = "Добавить контакт";
+            // 
+            // toolStripMenuItem_EditContact
+            // 
+            this.toolStripMenuItem_EditContact.Image = global::ContactsAppUI.Assets.ImageAssets.Edit;
+            this.toolStripMenuItem_EditContact.Name = "toolStripMenuItem_EditContact";
+            this.toolStripMenuItem_EditContact.Size = new System.Drawing.Size(199, 22);
+            this.toolStripMenuItem_EditContact.Text = "Редактировать контакт";
+            // 
+            // toolStripMenuItem_RemoveContact
+            // 
+            this.toolStripMenuItem_RemoveContact.Image = global::ContactsAppUI.Assets.ImageAssets.Delete;
+            this.toolStripMenuItem_RemoveContact.Name = "toolStripMenuItem_RemoveContact";
+            this.toolStripMenuItem_RemoveContact.Size = new System.Drawing.Size(199, 22);
+            this.toolStripMenuItem_RemoveContact.Text = "Удалить контакт";
+            // 
+            // toolStripMenuItem_About
+            // 
+            this.toolStripMenuItem_About.Name = "toolStripMenuItem_About";
+            this.toolStripMenuItem_About.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem_About.Text = "О программе";
+            // 
             // ContactsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -514,5 +561,11 @@ namespace ContactsAppUI.Forms
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Help;
 
         #endregion
+
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Exit;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_AddContact;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_RemoveContact;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_EditContact;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_About;
     }
 }
