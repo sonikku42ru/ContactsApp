@@ -90,7 +90,7 @@ namespace ContactsAppUI.Forms
         private void AddContact()
         {
             (Contact, DialogResult) dialogResult = ShowEditDialog();
-            if (DialogResult == DialogResult.OK)
+            if (dialogResult.Item2 == DialogResult.OK)
                 _contactsViewModel.AddContact(dialogResult.Item1);
         }
 
