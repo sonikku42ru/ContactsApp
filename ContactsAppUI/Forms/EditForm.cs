@@ -43,7 +43,7 @@ namespace ContactsAppUI.Forms
             maskedTextBox_Phone.DataBindings[0].BindingComplete += OnBindingComplete;
             
             dateTimePicker_Birthday.DataBindings
-                .Add(nameof(dateTimePicker_Birthday), Contact, nameof(Contact.Birthday),
+                .Add(nameof(dateTimePicker_Birthday.Value), Contact, nameof(Contact.Birthday),
                     true, DataSourceUpdateMode.OnPropertyChanged);
             dateTimePicker_Birthday.DataBindings[0].BindingComplete += OnBindingComplete;
 
@@ -96,6 +96,7 @@ namespace ContactsAppUI.Forms
 
         private void SetError(Control control, string message)
         {
+            Console.WriteLine(message);
             errorProvider.SetError(GetLabel(control), message);
             control.ForeColor = Color.Red;
             button_Ok.Enabled = false;
@@ -127,8 +128,11 @@ namespace ContactsAppUI.Forms
 
         private void OnBindingComplete(object sender, BindingCompleteEventArgs e)
         {
+            Console.WriteLine(e.ErrorText);
             if (e.Exception != null)
+            {
                 SetError(((Binding)sender).Control, e.Exception.Message);
+            }
             else
                 RemoveError(((Binding)sender).Control);
         }

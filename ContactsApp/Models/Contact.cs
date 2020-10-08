@@ -36,7 +36,7 @@ namespace ContactsApp.Models
             get => _birthday;
             set
             {
-                if (value <= MinDate && value >= DateTime.Today)
+                if (value <= MinDate || value >= DateTime.Today)
                     throw new ArgumentException("Birthday date shouldn't be less " +
                                                 "than 1.1.1900 or more than today");
                 _birthday = value;
@@ -129,6 +129,19 @@ namespace ContactsApp.Models
                    _email.Equals(other._email) &&
                    _idVk.Equals(other._idVk) &&
                    _phoneNumber.Equals(other._phoneNumber);
+        }
+
+        public Contact Clone()
+        {
+            return new Contact()
+            {
+                FirstName = this.FirstName,
+                LastName = this.LastName,
+                Birthday = this.Birthday,
+                Email = this.Email,
+                PhoneNumber = this.PhoneNumber,
+                IdVk = this.IdVk
+            };
         }
     }
 }

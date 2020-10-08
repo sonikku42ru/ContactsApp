@@ -99,8 +99,8 @@ namespace ContactsAppUI.Forms
         /// </summary>
         private void EditContact()
         {
-            (Contact, DialogResult) dialogResult = ShowEditDialog(_selectedContact);
-            if (DialogResult == DialogResult.OK)
+            (Contact, DialogResult) dialogResult = ShowEditDialog(_selectedContact.Clone());
+            if (dialogResult.Item2 == DialogResult.OK)
                 _contactsViewModel.UpdateContact(_selectedContact,dialogResult.Item1);
         }
 
