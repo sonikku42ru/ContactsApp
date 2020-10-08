@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using ContactsApp.Models;
 using ContactsAppUI.Converters;
@@ -16,10 +18,18 @@ namespace ContactsAppUI.Forms
         {
             InitializeComponent();
             Contact = contact;
+            BindControls();
             SetControlsDictionary();
             SetValues();
         }
 
+        private void BindControls()
+        {
+            textBox_LastName.DataBindings
+                .Add(nameof(textBox_LastName.Text), Contact, nameof(Contact.LastName), true, DataSourceUpdateMode.OnPropertyChanged);
+            textBox_LastName.DataBindings[0].BindingComplete += OnBindingComplete;
+        }
+        
         private void SetValues()
         {
             textBox_LastName.Text = Contact.LastName;
@@ -42,12 +52,32 @@ namespace ContactsAppUI.Forms
                 {textBox_IdVk, label_IdVk}
             };
         }
+        
+        private Control GetLabel(Control control)
+        {
+            return _controlsDictionary[control];
+        }
 
         private void CloseDialog(DialogResult result)
         {
             DialogResult = result;
             this.Close();
         }
+
+        #region Private methods to handle errors
+
+        private void SetError(Control control, string message)
+        {
+            errorProvider.SetError(GetLabel(control), message);
+            button_Ok.Enabled = false;
+        }
+
+        private void RemoveError(Control control)
+        {
+            errorProvider.SetError(GetLabel(control), "");
+        }
+        
+        #endregion
         
         #region UI Events
         
@@ -62,5 +92,47 @@ namespace ContactsAppUI.Forms
         }
         
         #endregion
+
+        private void OnBindingComplete(object sender, BindingCompleteEventArgs e)
+        {
+            if (e.Exception != null)
+                SetError(((Binding)sender).Control, e.Exception.Message);
+            else
+                RemoveError(((Binding)sender).Control);
+        }
+
+        private void textBox_LastName_TextChanged(object sender, EventArgs e)
+        {
+            return;
+            var valid = false;
+            var element = (TextBoxBase) sender;
+            try
+            {
+                Contact.LastName = ((TextBoxBase) sender).Text;
+                valid = true;
+            }
+            catch (ArgumentException ex)
+            {
+                element.ForeColor = Color.Red;
+                SetError(element, ex.Message);
+            }
+        }
+
+        private void textBox_FirstName_TextChanged(object sender, EventArgs e)
+        {
+            return;
+            var valid = false;
+            var element = (TextBoxBase) sender;
+            try
+            {
+                Contact.LastName = ((TextBoxBase) sender).Text;
+                valid = true;
+            }
+            catch (ArgumentException ex)
+            {
+                element.ForeColor = Color.Red;
+                SetError(element, ex.Message);
+            }
+        }
     }
 }

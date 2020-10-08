@@ -154,6 +154,7 @@ namespace ContactsAppUI.Forms
             this.textBox_LastName.Name = "textBox_LastName";
             this.textBox_LastName.Size = new System.Drawing.Size(329, 23);
             this.textBox_LastName.TabIndex = 0;
+            this.textBox_LastName.TextChanged += new System.EventHandler(this.textBox_LastName_TextChanged);
             // 
             // textBox_FirstName
             // 
@@ -166,6 +167,7 @@ namespace ContactsAppUI.Forms
             this.textBox_FirstName.Name = "textBox_FirstName";
             this.textBox_FirstName.Size = new System.Drawing.Size(329, 23);
             this.textBox_FirstName.TabIndex = 1;
+            this.textBox_FirstName.TextChanged += new System.EventHandler(this.textBox_FirstName_TextChanged);
             // 
             // textBox_Email
             // 
