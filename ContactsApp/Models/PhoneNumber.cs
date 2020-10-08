@@ -43,6 +43,11 @@ namespace ContactsApp.Models
             return (int)Math.Ceiling(Math.Log10(Math.Abs(phone) + 0.5));
         }
 
+        public static bool IsValid(long phone)
+        {
+            return Digits(phone) == Length;
+        }
+
         public bool Equals(PhoneNumber other)
         {
             return Number == other.Number;

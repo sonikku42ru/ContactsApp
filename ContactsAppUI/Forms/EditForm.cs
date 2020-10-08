@@ -21,6 +21,7 @@ namespace ContactsAppUI.Forms
             BindControls();
             SetControlsDictionary();
             SetValues();
+            CheckFields();
         }
 
         private void BindControls()
@@ -106,6 +107,28 @@ namespace ContactsAppUI.Forms
         {
             errorProvider.SetError(GetLabel(control), "");
             control.ResetForeColor();
+            CheckFields();
+        }
+
+        private void CheckFields()
+        {
+            button_Ok.Enabled = !(FieldsAreEmpty() || EnteredInvalidValues());
+        }
+        
+        private bool FieldsAreEmpty()
+        {
+            bool i = (string.IsNullOrEmpty(textBox_LastName.Text) ||
+                    string.IsNullOrEmpty(textBox_FirstName.Text) ||
+                    !PhoneNumber.IsValid(PhoneConverter.Unmask(maskedTextBox_Phone.Text)));
+            return i;
+        }
+
+        private bool EnteredInvalidValues()
+        {
+            bool j = _controlsDictionary
+                .Select(i => i.Value)
+                .Any(k => !string.IsNullOrEmpty(errorProvider.GetError(k)));
+            return j;
         }
         
         #endregion
@@ -128,7 +151,6 @@ namespace ContactsAppUI.Forms
 
         private void OnBindingComplete(object sender, BindingCompleteEventArgs e)
         {
-            Console.WriteLine(e.ErrorText);
             if (e.Exception != null)
             {
                 SetError(((Binding)sender).Control, e.Exception.Message);
