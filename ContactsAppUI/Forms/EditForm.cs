@@ -26,8 +26,36 @@ namespace ContactsAppUI.Forms
         private void BindControls()
         {
             textBox_LastName.DataBindings
-                .Add(nameof(textBox_LastName.Text), Contact, nameof(Contact.LastName), true, DataSourceUpdateMode.OnPropertyChanged);
+                .Add(nameof(textBox_LastName.Text), Contact, nameof(Contact.LastName), 
+                    true, DataSourceUpdateMode.OnPropertyChanged);
             textBox_LastName.DataBindings[0].BindingComplete += OnBindingComplete;
+            
+            textBox_FirstName.DataBindings
+                .Add(nameof(textBox_FirstName.Text), Contact, nameof(Contact.FirstName), 
+                    true, DataSourceUpdateMode.OnPropertyChanged);
+            textBox_FirstName.DataBindings[0].BindingComplete += OnBindingComplete;
+            
+            maskedTextBox_Phone.DataBindings
+                .Add(nameof(maskedTextBox_Phone.Text), Contact, nameof(Contact.PhoneNumber),
+                    true, DataSourceUpdateMode.OnPropertyChanged);
+            maskedTextBox_Phone.DataBindings[0].Format += OnPhoneFormat;
+            maskedTextBox_Phone.DataBindings[0].Parse += OnPhoneParse;
+            maskedTextBox_Phone.DataBindings[0].BindingComplete += OnBindingComplete;
+            
+            dateTimePicker_Birthday.DataBindings
+                .Add(nameof(dateTimePicker_Birthday), Contact, nameof(Contact.Birthday),
+                    true, DataSourceUpdateMode.OnPropertyChanged);
+            dateTimePicker_Birthday.DataBindings[0].BindingComplete += OnBindingComplete;
+
+            textBox_Email.DataBindings
+                .Add(nameof(textBox_Email.Text), Contact, nameof(Contact.Email),
+                    true, DataSourceUpdateMode.OnPropertyChanged);
+            textBox_Email.DataBindings[0].BindingComplete += OnBindingComplete;
+
+            textBox_IdVk.DataBindings
+                .Add(nameof(textBox_IdVk.Text), Contact, nameof(Contact.IdVk),
+                    true, DataSourceUpdateMode.OnPropertyChanged);
+            textBox_IdVk.DataBindings[0].BindingComplete += OnBindingComplete;
         }
         
         private void SetValues()
@@ -69,12 +97,14 @@ namespace ContactsAppUI.Forms
         private void SetError(Control control, string message)
         {
             errorProvider.SetError(GetLabel(control), message);
+            control.ForeColor = Color.Red;
             button_Ok.Enabled = false;
         }
 
         private void RemoveError(Control control)
         {
             errorProvider.SetError(GetLabel(control), "");
+            control.ResetForeColor();
         }
         
         #endregion
@@ -92,6 +122,8 @@ namespace ContactsAppUI.Forms
         }
         
         #endregion
+        
+        #region Data changed events handlers
 
         private void OnBindingComplete(object sender, BindingCompleteEventArgs e)
         {
@@ -101,38 +133,16 @@ namespace ContactsAppUI.Forms
                 RemoveError(((Binding)sender).Control);
         }
 
-        private void textBox_LastName_TextChanged(object sender, EventArgs e)
+        private void OnPhoneFormat(object sender, ConvertEventArgs e)
         {
-            return;
-            var valid = false;
-            var element = (TextBoxBase) sender;
-            try
-            {
-                Contact.LastName = ((TextBoxBase) sender).Text;
-                valid = true;
-            }
-            catch (ArgumentException ex)
-            {
-                element.ForeColor = Color.Red;
-                SetError(element, ex.Message);
-            }
+            e.Value = PhoneConverter.Mask((long)e.Value);
         }
 
-        private void textBox_FirstName_TextChanged(object sender, EventArgs e)
+        private void OnPhoneParse(object sender, ConvertEventArgs e)
         {
-            return;
-            var valid = false;
-            var element = (TextBoxBase) sender;
-            try
-            {
-                Contact.LastName = ((TextBoxBase) sender).Text;
-                valid = true;
-            }
-            catch (ArgumentException ex)
-            {
-                element.ForeColor = Color.Red;
-                SetError(element, ex.Message);
-            }
+            e.Value = PhoneConverter.Unmask((string) e.Value);
         }
+        
+        #endregion
     }
 }

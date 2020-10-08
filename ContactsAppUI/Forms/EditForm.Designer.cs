@@ -90,7 +90,7 @@ namespace ContactsAppUI.Forms
                 new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.tableLayoutPanel_Edit.RowStyles.Add(
                 new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel_Edit.Size = new System.Drawing.Size(506, 174);
+            this.tableLayoutPanel_Edit.Size = new System.Drawing.Size(496, 174);
             this.tableLayoutPanel_Edit.TabIndex = 0;
             // 
             // label_IdVk
@@ -152,9 +152,8 @@ namespace ContactsAppUI.Forms
                                                        System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_LastName.Location = new System.Drawing.Point(174, 3);
             this.textBox_LastName.Name = "textBox_LastName";
-            this.textBox_LastName.Size = new System.Drawing.Size(329, 23);
+            this.textBox_LastName.Size = new System.Drawing.Size(319, 23);
             this.textBox_LastName.TabIndex = 0;
-            this.textBox_LastName.TextChanged += new System.EventHandler(this.textBox_LastName_TextChanged);
             // 
             // textBox_FirstName
             // 
@@ -165,9 +164,8 @@ namespace ContactsAppUI.Forms
                                                        System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_FirstName.Location = new System.Drawing.Point(174, 32);
             this.textBox_FirstName.Name = "textBox_FirstName";
-            this.textBox_FirstName.Size = new System.Drawing.Size(329, 23);
+            this.textBox_FirstName.Size = new System.Drawing.Size(319, 23);
             this.textBox_FirstName.TabIndex = 1;
-            this.textBox_FirstName.TextChanged += new System.EventHandler(this.textBox_FirstName_TextChanged);
             // 
             // textBox_Email
             // 
@@ -178,7 +176,7 @@ namespace ContactsAppUI.Forms
                                                        System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_Email.Location = new System.Drawing.Point(174, 119);
             this.textBox_Email.Name = "textBox_Email";
-            this.textBox_Email.Size = new System.Drawing.Size(329, 23);
+            this.textBox_Email.Size = new System.Drawing.Size(319, 23);
             this.textBox_Email.TabIndex = 4;
             // 
             // textBox_IdVk
@@ -190,7 +188,7 @@ namespace ContactsAppUI.Forms
                                                        System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_IdVk.Location = new System.Drawing.Point(174, 148);
             this.textBox_IdVk.Name = "textBox_IdVk";
-            this.textBox_IdVk.Size = new System.Drawing.Size(329, 23);
+            this.textBox_IdVk.Size = new System.Drawing.Size(319, 23);
             this.textBox_IdVk.TabIndex = 5;
             // 
             // dateTimePicker_Birthday
@@ -202,7 +200,7 @@ namespace ContactsAppUI.Forms
                                                        System.Windows.Forms.AnchorStyles.Right)));
             this.dateTimePicker_Birthday.Location = new System.Drawing.Point(174, 61);
             this.dateTimePicker_Birthday.Name = "dateTimePicker_Birthday";
-            this.dateTimePicker_Birthday.Size = new System.Drawing.Size(329, 23);
+            this.dateTimePicker_Birthday.Size = new System.Drawing.Size(319, 23);
             this.dateTimePicker_Birthday.TabIndex = 2;
             // 
             // maskedTextBox_Phone
@@ -215,7 +213,7 @@ namespace ContactsAppUI.Forms
             this.maskedTextBox_Phone.Location = new System.Drawing.Point(174, 90);
             this.maskedTextBox_Phone.Mask = "+7 (000) 000-0000";
             this.maskedTextBox_Phone.Name = "maskedTextBox_Phone";
-            this.maskedTextBox_Phone.Size = new System.Drawing.Size(329, 23);
+            this.maskedTextBox_Phone.Size = new System.Drawing.Size(319, 23);
             this.maskedTextBox_Phone.TabIndex = 3;
             // 
             // label_LastName
@@ -231,7 +229,7 @@ namespace ContactsAppUI.Forms
             // button_Cancel
             // 
             this.button_Cancel.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.button_Cancel.Location = new System.Drawing.Point(435, 189);
+            this.button_Cancel.Location = new System.Drawing.Point(425, 189);
             this.button_Cancel.Name = "button_Cancel";
             this.button_Cancel.Size = new System.Drawing.Size(80, 27);
             this.button_Cancel.TabIndex = 1;
@@ -242,7 +240,7 @@ namespace ContactsAppUI.Forms
             // button_Ok
             // 
             this.button_Ok.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.button_Ok.Location = new System.Drawing.Point(348, 189);
+            this.button_Ok.Location = new System.Drawing.Point(338, 189);
             this.button_Ok.Name = "button_Ok";
             this.button_Ok.Size = new System.Drawing.Size(80, 27);
             this.button_Ok.TabIndex = 2;
@@ -258,7 +256,7 @@ namespace ContactsAppUI.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(534, 222);
+            this.ClientSize = new System.Drawing.Size(524, 222);
             this.ControlBox = false;
             this.Controls.Add(this.button_Ok);
             this.Controls.Add(this.button_Cancel);
