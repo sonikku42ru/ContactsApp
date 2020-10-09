@@ -33,6 +33,7 @@ namespace ContactsAppUI.ViewModels
             int index = _project.Contacts.IndexOf(contact);
             OnContactsListChanged?.Invoke(this, 
                 new ContactsListChangedEventArgs(index));
+            Task.Run(async() => await SaveProject(_project));
         }
 
         public void RemoveContact(Contact contact)
@@ -40,6 +41,7 @@ namespace ContactsAppUI.ViewModels
             int index = _project.Contacts.IndexOf(contact);
             _project.Contacts.Remove(contact);
             OnContactsListChanged?.Invoke(this, new ContactsListChangedEventArgs(index));
+            Task.Run(async() => await SaveProject(_project));
         } 
         
         public void UpdateContact(Contact oldContact, Contact newContact)
@@ -47,6 +49,7 @@ namespace ContactsAppUI.ViewModels
             int index = _project.Contacts.IndexOf(oldContact);
             _project.Contacts[index] = newContact;
             OnContactsListChanged?.Invoke(this, new ContactsListChangedEventArgs(index));
+            Task.Run(async() => await SaveProject(_project));
         }
 
         #region Nested events

@@ -99,6 +99,7 @@ namespace ContactsAppUI.Forms
             this.toolStripMenuItem_Exit.Name = "toolStripMenuItem_Exit";
             this.toolStripMenuItem_Exit.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItem_Exit.Text = "Выход";
+            this.toolStripMenuItem_Exit.Click += new System.EventHandler(this.toolStripMenuItem_Exit_Click);
             // 
             // toolStripMenuItem_Edit
             // 
@@ -117,6 +118,7 @@ namespace ContactsAppUI.Forms
             this.toolStripMenuItem_AddContact.Name = "toolStripMenuItem_AddContact";
             this.toolStripMenuItem_AddContact.Size = new System.Drawing.Size(199, 22);
             this.toolStripMenuItem_AddContact.Text = "Добавить контакт";
+            this.toolStripMenuItem_AddContact.Click += new System.EventHandler(this.toolStripMenuItem_AddContact_Click);
             // 
             // toolStripMenuItem_EditContact
             // 
@@ -124,6 +126,8 @@ namespace ContactsAppUI.Forms
             this.toolStripMenuItem_EditContact.Name = "toolStripMenuItem_EditContact";
             this.toolStripMenuItem_EditContact.Size = new System.Drawing.Size(199, 22);
             this.toolStripMenuItem_EditContact.Text = "Редактировать контакт";
+            this.toolStripMenuItem_EditContact.Click +=
+                new System.EventHandler(this.toolStripMenuItem_EditContact_Click);
             // 
             // toolStripMenuItem_RemoveContact
             // 
@@ -131,6 +135,8 @@ namespace ContactsAppUI.Forms
             this.toolStripMenuItem_RemoveContact.Name = "toolStripMenuItem_RemoveContact";
             this.toolStripMenuItem_RemoveContact.Size = new System.Drawing.Size(199, 22);
             this.toolStripMenuItem_RemoveContact.Text = "Удалить контакт";
+            this.toolStripMenuItem_RemoveContact.Click +=
+                new System.EventHandler(this.toolStripMenuItem_RemoveContact_Click);
             // 
             // toolStripMenuItem_Help
             // 
@@ -143,7 +149,7 @@ namespace ContactsAppUI.Forms
             // toolStripMenuItem_About
             // 
             this.toolStripMenuItem_About.Name = "toolStripMenuItem_About";
-            this.toolStripMenuItem_About.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem_About.Size = new System.Drawing.Size(149, 22);
             this.toolStripMenuItem_About.Text = "О программе";
             this.toolStripMenuItem_About.Click += new System.EventHandler(this.toolStripMenuItem_About_Click);
             // 

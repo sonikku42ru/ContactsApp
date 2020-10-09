@@ -106,6 +106,14 @@ namespace ContactsAppUI.Forms
             SwitchDetails(true);
         }
 
+        private void RemoveContact()
+        {
+            int index = listBox_Contacts.SelectedIndex;
+            _contactsViewModel.RemoveContact(_selectedContact);
+            if (index < listBox_Contacts.Items.Count)
+                listBox_Contacts.SelectedIndex = index;
+        }
+
         #endregion
         
         #region Private methods to update UI
@@ -230,10 +238,7 @@ namespace ContactsAppUI.Forms
         /// <param name="e"></param>
         private void button_RemoveContact_Click(object sender, EventArgs e)
         {
-            int index = listBox_Contacts.SelectedIndex;
-            _contactsViewModel.RemoveContact(_selectedContact);
-            if (index < listBox_Contacts.Items.Count)
-                listBox_Contacts.SelectedIndex = index;
+            RemoveContact();
         }
 
         /// <summary>
@@ -256,6 +261,26 @@ namespace ContactsAppUI.Forms
         private void toolStripMenuItem_About_Click(object sender, EventArgs e)
         {
             ShowAbout();
+        }
+        
+        private void toolStripMenuItem_Exit_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+        
+        private void toolStripMenuItem_AddContact_Click(object sender, EventArgs e)
+        {
+            AddContact();
+        }
+        
+        private void toolStripMenuItem_EditContact_Click(object sender, EventArgs e)
+        {
+            EditContact();
+        }
+        
+        private void toolStripMenuItem_RemoveContact_Click(object sender, EventArgs e)
+        {
+            RemoveContact();
         }
         
         #endregion
