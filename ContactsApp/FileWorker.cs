@@ -28,27 +28,27 @@ namespace ContactsApp
             }
             catch (JsonReaderException ex)
             {
-                throw new ProjectReadingException(ex, "Unable to read file \""
+                throw new ProjectReadingException(ex, "Невозможно прочитать \""
                                                       + path
-                                                      + "\": file corrupted.");
+                                                      + "\": файл повреждён.");
             }
             catch (UnauthorizedAccessException ex)
             {
-                throw new ProjectReadingException(ex, "Unable to read file \""
+                throw new ProjectReadingException(ex, "Невозможно прочитать \""
                                                       + path
-                                                      + "\": insufficient permissions.");
+                                                      + "\": недостаточно прав доступа.");
             }
             catch (IOException ex)
             {
-                throw new ProjectReadingException(ex, "Unable to read file \""
+                throw new ProjectReadingException(ex, "Невозможно прочитать \""
                                                       + path
-                                                      + "\": I/O error.");
+                                                      + "\": ошибка ввода-вывода.");
             }
             catch (System.Exception ex)
             {
-                throw new ProjectReadingException(ex, "Unable to read file \""
+                throw new ProjectReadingException(ex, "Невозможно прочитать \""
                                                       + path
-                                                      + "\": undefined error has occured.");
+                                                      + "\": неизвестная ошибка.");
             }
         }
         
@@ -77,21 +77,21 @@ namespace ContactsApp
             }
             catch (UnauthorizedAccessException ex)
             {
-                throw new ProjectReadingException(ex, "Unable to write file \""
+                throw new ProjectReadingException(ex, "Невозможно записать \""
                                                       + path
-                                                      + "\": insufficient permissions.");
+                                                      + "\": недостаточно прав доступа.");
             }
             catch (IOException ex)
             {
-                throw new ProjectReadingException(ex, "Unable to write file \""
+                throw new ProjectReadingException(ex, "Невозможно записать \""
                                                       + path
-                                                      + "\": I/O error.");
+                                                      + "\": ошибка ввода-вывода.");
             }
             catch (System.Exception ex)
             {
-                throw new ProjectReadingException(ex, "Unable to write file \""
+                throw new ProjectReadingException(ex, "Невозможно записать \""
                                                       + path
-                                                      + "\": undefined error has occured.");
+                                                      + "\": неизвестная ошибка.");
             }
         }
 
@@ -108,18 +108,18 @@ namespace ContactsApp
             }
             catch (IOException ex)
             {
-                throw new ProjectReadingException(ex, "Unable to create folder \"" + path +
-                                                      "\": I/O error.");
+                throw new ProjectReadingException(ex, "Невозможно создать папку \"" + path +
+                                                      "\": ошибка ввода-вывода.");
             }
             catch (UnauthorizedAccessException ex)
             {
-                throw new ProjectReadingException(ex, "Unable to create folder \"" + path +
-                                                      "\": insufficient permissions.");
+                throw new ProjectReadingException(ex, "Невозможно создать папку \"" + path +
+                                                      "\": недостаточно прав доступа.");
             }
             catch (System.Exception ex)
             {
-                throw new ProjectReadingException(ex, "Unable to create folder \"" + path +
-                                                      "\": undefined error has occured");
+                throw new ProjectReadingException(ex, "Невозможно создать папку \"" + path +
+                                                      "\": неизвестная ошибка.");
             }
         }
     }
