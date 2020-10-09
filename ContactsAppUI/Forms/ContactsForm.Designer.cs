@@ -354,11 +354,13 @@ namespace ContactsAppUI.Forms
                 ((System.Windows.Forms.AnchorStyles) (((System.Windows.Forms.AnchorStyles.Top |
                                                         System.Windows.Forms.AnchorStyles.Left) |
                                                        System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel_ContactInfo.ColumnCount = 2;
+            this.tableLayoutPanel_ContactInfo.ColumnCount = 3;
             this.tableLayoutPanel_ContactInfo.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 128F));
             this.tableLayoutPanel_ContactInfo.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel_ContactInfo.ColumnStyles.Add(
+                new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tableLayoutPanel_ContactInfo.Controls.Add(this.label_IdVk, 0, 5);
             this.tableLayoutPanel_ContactInfo.Controls.Add(this.label_FirstName, 0, 1);
             this.tableLayoutPanel_ContactInfo.Controls.Add(this.label_LastName, 0, 0);
@@ -428,7 +430,7 @@ namespace ContactsAppUI.Forms
             this.textBox_LastName.Location = new System.Drawing.Point(131, 3);
             this.textBox_LastName.Name = "textBox_LastName";
             this.textBox_LastName.ReadOnly = true;
-            this.textBox_LastName.Size = new System.Drawing.Size(275, 23);
+            this.textBox_LastName.Size = new System.Drawing.Size(243, 23);
             this.textBox_LastName.TabIndex = 1;
             // 
             // label_Birthday
@@ -470,7 +472,7 @@ namespace ContactsAppUI.Forms
             this.textBox_FirstName.Location = new System.Drawing.Point(131, 33);
             this.textBox_FirstName.Name = "textBox_FirstName";
             this.textBox_FirstName.ReadOnly = true;
-            this.textBox_FirstName.Size = new System.Drawing.Size(275, 23);
+            this.textBox_FirstName.Size = new System.Drawing.Size(243, 23);
             this.textBox_FirstName.TabIndex = 3;
             // 
             // textBox_Birthday
@@ -482,7 +484,7 @@ namespace ContactsAppUI.Forms
             this.textBox_Birthday.Location = new System.Drawing.Point(131, 63);
             this.textBox_Birthday.Name = "textBox_Birthday";
             this.textBox_Birthday.ReadOnly = true;
-            this.textBox_Birthday.Size = new System.Drawing.Size(275, 23);
+            this.textBox_Birthday.Size = new System.Drawing.Size(243, 23);
             this.textBox_Birthday.TabIndex = 5;
             // 
             // textBox_Phone
@@ -494,7 +496,7 @@ namespace ContactsAppUI.Forms
             this.textBox_Phone.Location = new System.Drawing.Point(131, 93);
             this.textBox_Phone.Name = "textBox_Phone";
             this.textBox_Phone.ReadOnly = true;
-            this.textBox_Phone.Size = new System.Drawing.Size(275, 23);
+            this.textBox_Phone.Size = new System.Drawing.Size(243, 23);
             this.textBox_Phone.TabIndex = 7;
             // 
             // textBox_Email
@@ -506,7 +508,7 @@ namespace ContactsAppUI.Forms
             this.textBox_Email.Location = new System.Drawing.Point(131, 123);
             this.textBox_Email.Name = "textBox_Email";
             this.textBox_Email.ReadOnly = true;
-            this.textBox_Email.Size = new System.Drawing.Size(275, 23);
+            this.textBox_Email.Size = new System.Drawing.Size(243, 23);
             this.textBox_Email.TabIndex = 9;
             // 
             // textBox_IdVk
@@ -518,7 +520,7 @@ namespace ContactsAppUI.Forms
             this.textBox_IdVk.Location = new System.Drawing.Point(131, 153);
             this.textBox_IdVk.Name = "textBox_IdVk";
             this.textBox_IdVk.ReadOnly = true;
-            this.textBox_IdVk.Size = new System.Drawing.Size(275, 23);
+            this.textBox_IdVk.Size = new System.Drawing.Size(243, 23);
             this.textBox_IdVk.TabIndex = 11;
             // 
             // ContactsForm
