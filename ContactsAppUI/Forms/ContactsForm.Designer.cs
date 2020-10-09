@@ -54,6 +54,7 @@ namespace ContactsAppUI.Forms
             this.label_BirthdaysInfo = new System.Windows.Forms.Label();
             this.pictureBox_BirthdaysInfo = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel_ContactInfo = new System.Windows.Forms.TableLayoutPanel();
+            this.pictureBox_VkAction = new System.Windows.Forms.PictureBox();
             this.label_IdVk = new System.Windows.Forms.Label();
             this.label_FirstName = new System.Windows.Forms.Label();
             this.label_LastName = new System.Windows.Forms.Label();
@@ -67,7 +68,6 @@ namespace ContactsAppUI.Forms
             this.textBox_Email = new System.Windows.Forms.TextBox();
             this.textBox_IdVk = new System.Windows.Forms.TextBox();
             this.pictureBox_EmailAction = new System.Windows.Forms.PictureBox();
-            this.pictureBox_VkAction = new System.Windows.Forms.PictureBox();
             this.menuStrip.SuspendLayout();
             this.tableLayoutPanel_Left.SuspendLayout();
             this.panel_ContactsList.SuspendLayout();
@@ -76,8 +76,8 @@ namespace ContactsAppUI.Forms
             this.panel_BirthdaysInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox_BirthdaysInfo)).BeginInit();
             this.tableLayoutPanel_ContactInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.pictureBox_EmailAction)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox_VkAction)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.pictureBox_EmailAction)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -101,7 +101,7 @@ namespace ContactsAppUI.Forms
             // toolStripMenuItem_Exit
             // 
             this.toolStripMenuItem_Exit.Name = "toolStripMenuItem_Exit";
-            this.toolStripMenuItem_Exit.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem_Exit.Size = new System.Drawing.Size(108, 22);
             this.toolStripMenuItem_Exit.Text = "Выход";
             this.toolStripMenuItem_Exit.Click += new System.EventHandler(this.toolStripMenuItem_Exit_Click);
             // 
@@ -154,7 +154,7 @@ namespace ContactsAppUI.Forms
             // 
             this.toolStripMenuItem_About.Image = global::ContactsAppUI.Assets.ImageAssets.Info;
             this.toolStripMenuItem_About.Name = "toolStripMenuItem_About";
-            this.toolStripMenuItem_About.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem_About.Size = new System.Drawing.Size(149, 22);
             this.toolStripMenuItem_About.Text = "О программе";
             this.toolStripMenuItem_About.Click += new System.EventHandler(this.toolStripMenuItem_About_Click);
             // 
@@ -238,6 +238,7 @@ namespace ContactsAppUI.Forms
             this.listBox_Contacts.TabIndex = 0;
             this.listBox_Contacts.SelectedIndexChanged +=
                 new System.EventHandler(this.listBox_Contacts_SelectedIndexChanged);
+            this.listBox_Contacts.KeyUp += new System.Windows.Forms.KeyEventHandler(this.listBox_Contacts_KeyUp);
             // 
             // panel_EditButtons
             // 
@@ -398,6 +399,18 @@ namespace ContactsAppUI.Forms
             this.tableLayoutPanel_ContactInfo.Size = new System.Drawing.Size(409, 180);
             this.tableLayoutPanel_ContactInfo.TabIndex = 0;
             // 
+            // pictureBox_VkAction
+            // 
+            this.pictureBox_VkAction.BackgroundImage = global::ContactsAppUI.Assets.ImageAssets.VK;
+            this.pictureBox_VkAction.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox_VkAction.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox_VkAction.Location = new System.Drawing.Point(381, 153);
+            this.pictureBox_VkAction.Name = "pictureBox_VkAction";
+            this.pictureBox_VkAction.Size = new System.Drawing.Size(24, 23);
+            this.pictureBox_VkAction.TabIndex = 13;
+            this.pictureBox_VkAction.TabStop = false;
+            this.pictureBox_VkAction.Click += new System.EventHandler(this.pictureBox_VkAction_Click);
+            // 
             // label_IdVk
             // 
             this.label_IdVk.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -537,22 +550,10 @@ namespace ContactsAppUI.Forms
             this.pictureBox_EmailAction.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox_EmailAction.Location = new System.Drawing.Point(381, 123);
             this.pictureBox_EmailAction.Name = "pictureBox_EmailAction";
-            this.pictureBox_EmailAction.Size = new System.Drawing.Size(25, 24);
+            this.pictureBox_EmailAction.Size = new System.Drawing.Size(24, 23);
             this.pictureBox_EmailAction.TabIndex = 12;
             this.pictureBox_EmailAction.TabStop = false;
             this.pictureBox_EmailAction.Click += new System.EventHandler(this.pictureBox_EmailAction_Click);
-            // 
-            // pictureBox_VkAction
-            // 
-            this.pictureBox_VkAction.BackgroundImage = global::ContactsAppUI.Assets.ImageAssets.VK;
-            this.pictureBox_VkAction.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox_VkAction.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox_VkAction.Location = new System.Drawing.Point(381, 153);
-            this.pictureBox_VkAction.Name = "pictureBox_VkAction";
-            this.pictureBox_VkAction.Size = new System.Drawing.Size(25, 24);
-            this.pictureBox_VkAction.TabIndex = 13;
-            this.pictureBox_VkAction.TabStop = false;
-            this.pictureBox_VkAction.Click += new System.EventHandler(this.pictureBox_VkAction_Click);
             // 
             // ContactsForm
             // 
@@ -577,8 +578,8 @@ namespace ContactsAppUI.Forms
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox_BirthdaysInfo)).EndInit();
             this.tableLayoutPanel_ContactInfo.ResumeLayout(false);
             this.tableLayoutPanel_ContactInfo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.pictureBox_EmailAction)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox_VkAction)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.pictureBox_EmailAction)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
         }

@@ -115,6 +115,15 @@ namespace ContactsAppUI.Forms
                 listBox_Contacts.SelectedIndex = index;
         }
 
+        private void AskToRemove()
+        {
+            DialogResult result = MessageBox.Show("Удалить контакт " + _selectedContact.LastName + "?", 
+                _selectedContact.LastName, MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+                RemoveContact();
+            
+        }
+
         #endregion
         
         #region Private methods to update UI
@@ -296,6 +305,12 @@ namespace ContactsAppUI.Forms
         {
             if (!string.IsNullOrEmpty(_selectedContact.IdVk))
                 Process.Start(Abouts.Https + "vk.com/" + _selectedContact.IdVk);
+        }
+
+        private void listBox_Contacts_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+                AskToRemove();
         }
     }
 }
