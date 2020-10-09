@@ -101,7 +101,7 @@ namespace ContactsAppUI.Forms
             // toolStripMenuItem_Exit
             // 
             this.toolStripMenuItem_Exit.Name = "toolStripMenuItem_Exit";
-            this.toolStripMenuItem_Exit.Size = new System.Drawing.Size(108, 22);
+            this.toolStripMenuItem_Exit.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItem_Exit.Text = "Выход";
             this.toolStripMenuItem_Exit.Click += new System.EventHandler(this.toolStripMenuItem_Exit_Click);
             // 
@@ -152,8 +152,9 @@ namespace ContactsAppUI.Forms
             // 
             // toolStripMenuItem_About
             // 
+            this.toolStripMenuItem_About.Image = global::ContactsAppUI.Assets.ImageAssets.Info;
             this.toolStripMenuItem_About.Name = "toolStripMenuItem_About";
-            this.toolStripMenuItem_About.Size = new System.Drawing.Size(149, 22);
+            this.toolStripMenuItem_About.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItem_About.Text = "О программе";
             this.toolStripMenuItem_About.Click += new System.EventHandler(this.toolStripMenuItem_About_Click);
             // 
