@@ -10,32 +10,48 @@ namespace ContactsAppUI.Forms
 {
     public partial class EditForm : Form
     {
+        /// <summary>
+        /// Словарь соответствий контролов для отображения ErrorProvider на Label'ах, соответствующих
+        /// элементам, на которых произошла ошибка
+        /// </summary>
         private Dictionary<Control, Control> _controlsDictionary;
 
         public Contact Contact { get; private set; }
 
         public EditForm(Contact contact)
         {
+            // Инициализация формы
             InitializeComponent();
+            // Привязка контакта
             Contact = contact;
+            // Привязка элементов управления к свойствам объекта Contact
             BindControls();
+            // Установление соответствий между Label'ами и элементами управления
             SetControlsDictionary();
+            // Установка значений
             SetValues();
+            // Проверка полей на валидность
             CheckFields();
         }
 
+        /// <summary>
+        /// Привязка полей формы к свойствам объекта Contact, а также подписывание событий
+        /// </summary>
         private void BindControls()
         {
+            // Фамилия
             textBox_LastName.DataBindings
                 .Add(nameof(textBox_LastName.Text), Contact, nameof(Contact.LastName), 
                     true, DataSourceUpdateMode.OnPropertyChanged);
             textBox_LastName.DataBindings[0].BindingComplete += OnBindingComplete;
             
+            // Имя
             textBox_FirstName.DataBindings
                 .Add(nameof(textBox_FirstName.Text), Contact, nameof(Contact.FirstName), 
                     true, DataSourceUpdateMode.OnPropertyChanged);
             textBox_FirstName.DataBindings[0].BindingComplete += OnBindingComplete;
             
+            // Телефон
             maskedTextBox_Phone.DataBindings
                 .Add(nameof(maskedTextBox_Phone.Text), Contact, nameof(Contact.PhoneNumber),
                     true, DataSourceUpdateMode.OnPropertyChanged);
@@ -43,22 +59,28 @@ namespace ContactsAppUI.Forms
             maskedTextBox_Phone.DataBindings[0].Parse += OnPhoneParse;
             maskedTextBox_Phone.DataBindings[0].BindingComplete += OnBindingComplete;
             
+            // Дата рождения
             dateTimePicker_Birthday.DataBindings
                 .Add(nameof(dateTimePicker_Birthday.Value), Contact, nameof(Contact.Birthday),
                     true, DataSourceUpdateMode.OnPropertyChanged);
             dateTimePicker_Birthday.DataBindings[0].BindingComplete += OnBindingComplete;
 
+            // E-Mail
             textBox_Email.DataBindings
                 .Add(nameof(textBox_Email.Text), Contact, nameof(Contact.Email),
                     true, DataSourceUpdateMode.OnPropertyChanged);
             textBox_Email.DataBindings[0].BindingComplete += OnBindingComplete;
 
+            // ID ВКонтакте
             textBox_IdVk.DataBindings
                 .Add(nameof(textBox_IdVk.Text), Contact, nameof(Contact.IdVk),
                     true, DataSourceUpdateMode.OnPropertyChanged);
             textBox_IdVk.DataBindings[0].BindingComplete += OnBindingComplete;
         }
         
+        /// <summary>
+        /// Первичная установка значений
+        /// </summary>
         private void SetValues()
         {
             textBox_LastName.Text = Contact.LastName;
@@ -69,6 +91,9 @@ namespace ContactsAppUI.Forms
             textBox_IdVk.Text = Contact.IdVk;
         }
 
+        /// <summary>
+        /// Установка соответствий между Label'ами и полями формы
+        /// </summary>
         private void SetControlsDictionary()
         {
             _controlsDictionary = new Dictionary<Control, Control>()
@@ -82,11 +107,20 @@ namespace ContactsAppUI.Forms
             };
         }
         
+        /// <summary>
+        /// Получение Label'а, соответствующего полю формы
+        /// </summary>
+        /// <param name="control">Поле формы</param>
+        /// <returns>Label</returns>
         private Control GetLabel(Control control)
         {
             return _controlsDictionary[control];
         }
 
+        /// <summary>
+        /// Закрытие диалогового окна с известным результатом
+        /// </summary>
+        /// <param name="result">Результат</param>
         private void CloseDialog(DialogResult result)
         {
             DialogResult = result;
@@ -95,6 +129,11 @@ namespace ContactsAppUI.Forms
 
         #region Private methods to handle errors
 
+        /// <summary>
+        /// Установка ошибки в контрол через ErrorProvider
+        /// </summary>
+        /// <param name="control">Поле формы</param>
+        /// <param name="message">Сообщение об ошибке</param>
         private void SetError(Control control, string message)
         {
             Console.WriteLine(message);
@@ -110,11 +149,18 @@ namespace ContactsAppUI.Forms
             CheckFields();
         }
 
+        /// <summary>
+        /// Проверка полей на содержание в них ошибок
+        /// </summary>
         private void CheckFields()
         {
             button_Ok.Enabled = !(FieldsAreEmpty() || EnteredInvalidValues());
         }
         
+        /// <summary>
+        /// Проверка полей на пустоту
+        /// </summary>
+        /// <returns></returns>
         private bool FieldsAreEmpty()
         {
             bool i = (string.IsNullOrEmpty(textBox_LastName.Text) ||
@@ -123,6 +169,10 @@ namespace ContactsAppUI.Forms
             return i;
         }
 
+        /// <summary>
+        /// Проверка полей на наличие неправильных значений
+        /// </summary>
+        /// <returns></returns>
         private bool EnteredInvalidValues()
         {
             bool j = _controlsDictionary
@@ -149,6 +199,11 @@ namespace ContactsAppUI.Forms
         
         #region Data changed events handlers
 
+        /// <summary>
+        /// Обработчик события завершения привязки. Используется для валидации данных, введённых в поле формы.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnBindingComplete(object sender, BindingCompleteEventArgs e)
         {
             if (e.Exception != null)
@@ -159,11 +214,23 @@ namespace ContactsAppUI.Forms
                 RemoveError(((Binding)sender).Control);
         }
 
+        /// <summary>
+        /// Обработчик события форматирования телефона. Используется для преобразования телефона в long на этапе
+        /// присвоения значения свойству объекта Contact.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnPhoneFormat(object sender, ConvertEventArgs e)
         {
             e.Value = PhoneConverter.Mask((long)e.Value);
         }
 
+        /// <summary>
+        /// Обработчик события парсинга телефона. Используется для преобразования телефона в string на этапе
+        /// присвоения свойства объекта Contact полю формы.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnPhoneParse(object sender, ConvertEventArgs e)
         {
             e.Value = PhoneConverter.Unmask((string) e.Value);
