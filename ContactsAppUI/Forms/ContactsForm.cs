@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
@@ -284,5 +285,17 @@ namespace ContactsAppUI.Forms
         }
         
         #endregion
+
+        private void pictureBox_EmailAction_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(_selectedContact.Email))
+                Process.Start(Abouts.MailTo + _selectedContact.Email);
+        }
+
+        private void pictureBox_VkAction_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(_selectedContact.IdVk))
+                Process.Start(Abouts.Https + "vk.com/" + _selectedContact.IdVk);
+        }
     }
 }

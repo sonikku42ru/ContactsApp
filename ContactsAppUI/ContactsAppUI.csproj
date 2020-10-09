@@ -122,7 +122,9 @@
       <Content Include="Assets\Add.png" />
       <Content Include="Assets\Delete.png" />
       <Content Include="Assets\Edit.png" />
+      <Content Include="Assets\EMail.png" />
       <Content Include="Assets\Info.png" />
+      <Content Include="Assets\VK.png" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
