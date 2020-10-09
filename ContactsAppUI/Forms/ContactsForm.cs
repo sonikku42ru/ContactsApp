@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ContactsApp;
 using ContactsApp.Models;
+using ContactsAppUI.Converters;
 using ContactsAppUI.ViewModels;
 
 namespace ContactsAppUI.Forms
@@ -102,6 +103,7 @@ namespace ContactsAppUI.Forms
             (Contact, DialogResult) dialogResult = ShowEditDialog(_selectedContact.Clone());
             if (dialogResult.Item2 == DialogResult.OK)
                 _contactsViewModel.UpdateContact(_selectedContact,dialogResult.Item1);
+            SwitchDetails(true);
         }
 
         #endregion
@@ -133,8 +135,8 @@ namespace ContactsAppUI.Forms
         {
             textBox_LastName.Text = show ? _selectedContact.LastName : "";
             textBox_FirstName.Text = show ? _selectedContact.FirstName : "";
-            textBox_Birthday.Text = show ? _selectedContact.Birthday.ToString(CultureInfo.CurrentUICulture) : "";
-            textBox_Phone.Text = show ? _selectedContact.PhoneNumber.ToString() : "";
+            textBox_Birthday.Text = show ? _selectedContact.Birthday.ToString("D") : "";
+            textBox_Phone.Text = show ? PhoneConverter.Mask(_selectedContact.PhoneNumber) : "";
             textBox_Email.Text = show ? _selectedContact.Email : "";
             textBox_IdVk.Text = show ? _selectedContact.IdVk : "";
         }
@@ -175,7 +177,7 @@ namespace ContactsAppUI.Forms
         {
             Enabled = false;
             var editForm = new EditForm(contact ?? new Contact());
-            (Contact, DialogResult) result = (contact, DialogResult.Cancel);
+            (Contact, DialogResult) result;
             using (editForm)
             {
                 editForm.ShowDialog();
