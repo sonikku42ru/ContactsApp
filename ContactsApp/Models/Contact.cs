@@ -37,8 +37,9 @@ namespace ContactsApp.Models
             set
             {
                 if (value < MinDate || value > DateTime.Today)
-                    throw new ArgumentException("Birthday date shouldn't be less " +
-                                                "than 1.1.1900 or more than today");
+                    throw new ArgumentException("Дата рождения не должна быть ранее " 
+                                                + MinDate.ToString("D") 
+                                                + " или позднее сегодняшнего дня");
                 _birthday = value;
             }
         }
@@ -53,9 +54,9 @@ namespace ContactsApp.Models
             set
             {
                 if (!TextIsCorrect(value))
-                    throw new ArgumentException("Last name shouldn't be null or longer than " 
+                    throw new ArgumentException("Фамилия не должна быть длиннее " 
                                                 + MaxTextLength 
-                                                + " characters.");
+                                                + " символов");
                 _lastName = value;
             }
         }
@@ -70,9 +71,9 @@ namespace ContactsApp.Models
             set
             {
                 if (!TextIsCorrect(value))
-                    throw new ArgumentException("First name shouldn't be null or longer than " 
+                    throw new ArgumentException("Имя не должно быть длиннее " 
                                                 + MaxTextLength 
-                                                + " characters.");
+                                                + " символов");
                 _firstName = value;
             }
         }
@@ -87,9 +88,9 @@ namespace ContactsApp.Models
             set
             {
                 if (!TextIsCorrect(value))
-                    throw new ArgumentException("E-mail shouldn't be null or longer than " 
+                    throw new ArgumentException("E-mail не должен быть длиннее " 
                                                 + MaxTextLength
-                                                + " characters.");
+                                                + " символов");
                 _email = value;
             }
         }
@@ -104,9 +105,9 @@ namespace ContactsApp.Models
             set
             {
                 if (!TextIsCorrect(value))
-                    throw new ArgumentException("VK ID shouldn't be null or longer than " 
+                    throw new ArgumentException("ID ВКонтакте не должен быть длиннее " 
                                                 + MaxTextLength
-                                                + " characters.");
+                                                + " символов");
                 _idVk = value;
             }
         }

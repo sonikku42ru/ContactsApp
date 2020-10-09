@@ -22,10 +22,10 @@ namespace ContactsApp.Models
             {
                 // Если количество цифр в номере не равно 11, то выбрасывается исключение
                 if (Digits(value) != Length)
-                    throw new ArgumentException("Number must be 11 digits.");
+                    throw new ArgumentException("Номер должен состоять из " + Length.ToString() + " цифр");
                 // Если номер отрицательный, то выбрасывается исключение
                 if (value < 0)
-                    throw new ArgumentException("Number should be positive.");
+                    throw new ArgumentException("Номер должен быть положительным числом");
                 _phoneNumber = value;
             }
         }
