@@ -424,6 +424,7 @@ namespace ContactsAppUI.Forms
             this.textBox_LastName.Anchor =
                 ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left |
                                                        System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_LastName.BackColor = System.Drawing.SystemColors.Window;
             this.textBox_LastName.Location = new System.Drawing.Point(131, 3);
             this.textBox_LastName.Name = "textBox_LastName";
             this.textBox_LastName.ReadOnly = true;
@@ -465,6 +466,7 @@ namespace ContactsAppUI.Forms
             this.textBox_FirstName.Anchor =
                 ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left |
                                                        System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_FirstName.BackColor = System.Drawing.SystemColors.Window;
             this.textBox_FirstName.Location = new System.Drawing.Point(131, 33);
             this.textBox_FirstName.Name = "textBox_FirstName";
             this.textBox_FirstName.ReadOnly = true;
@@ -476,6 +478,7 @@ namespace ContactsAppUI.Forms
             this.textBox_Birthday.Anchor =
                 ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left |
                                                        System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_Birthday.BackColor = System.Drawing.SystemColors.Window;
             this.textBox_Birthday.Location = new System.Drawing.Point(131, 63);
             this.textBox_Birthday.Name = "textBox_Birthday";
             this.textBox_Birthday.ReadOnly = true;
@@ -487,6 +490,7 @@ namespace ContactsAppUI.Forms
             this.textBox_Phone.Anchor =
                 ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left |
                                                        System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_Phone.BackColor = System.Drawing.SystemColors.Window;
             this.textBox_Phone.Location = new System.Drawing.Point(131, 93);
             this.textBox_Phone.Name = "textBox_Phone";
             this.textBox_Phone.ReadOnly = true;
@@ -498,6 +502,7 @@ namespace ContactsAppUI.Forms
             this.textBox_Email.Anchor =
                 ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left |
                                                        System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_Email.BackColor = System.Drawing.SystemColors.Window;
             this.textBox_Email.Location = new System.Drawing.Point(131, 123);
             this.textBox_Email.Name = "textBox_Email";
             this.textBox_Email.ReadOnly = true;
@@ -509,6 +514,7 @@ namespace ContactsAppUI.Forms
             this.textBox_IdVk.Anchor =
                 ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left |
                                                        System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_IdVk.BackColor = System.Drawing.SystemColors.Window;
             this.textBox_IdVk.Location = new System.Drawing.Point(131, 153);
             this.textBox_IdVk.Name = "textBox_IdVk";
             this.textBox_IdVk.ReadOnly = true;
