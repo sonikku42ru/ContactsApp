@@ -31,6 +31,8 @@ namespace ContactsAppUI.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources =
+                new System.ComponentModel.ComponentResourceManager(typeof(ContactsForm));
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem_File = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_Exit = new System.Windows.Forms.ToolStripMenuItem();
@@ -563,6 +565,7 @@ namespace ContactsAppUI.Forms
             this.Controls.Add(this.panel_Right);
             this.Controls.Add(this.tableLayoutPanel_Left);
             this.Controls.Add(this.menuStrip);
+            this.Icon = ((System.Drawing.Icon) (resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
             this.MinimumSize = new System.Drawing.Size(697, 546);
             this.Name = "ContactsForm";

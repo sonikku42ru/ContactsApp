@@ -267,7 +267,7 @@ namespace ContactsAppUI.Forms
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(540, 261);
             this.Name = "EditForm";
-            this.Text = "EditForm";
+            this.Text = "Редактирование контакта";
             this.tableLayoutPanel_Edit.ResumeLayout(false);
             this.tableLayoutPanel_Edit.PerformLayout();
             ((System.ComponentModel.ISupportInitialize) (this.errorProvider)).EndInit();
