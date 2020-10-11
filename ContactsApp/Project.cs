@@ -12,7 +12,7 @@ namespace ContactsApp
         public List<Contact> GetSorted() => Contacts.OrderBy(i => i.LastName).ToList();
 
         public List<Contact> FindSorted(string query) => Contacts
-            .Where(i => i.LastName.Contains(query))
+            .Where(i => i.LastName.StartsWith(query))
             .OrderBy(j => j.LastName)
             .ToList();
 
