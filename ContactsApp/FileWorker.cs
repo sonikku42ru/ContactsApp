@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 
 namespace ContactsApp
 {
-    public class FileWorker
+    public static class FileWorker
     {
         public static async Task<string> ReadFileAsync(string path)
         {
@@ -53,9 +53,10 @@ namespace ContactsApp
         }
         
         /// <summary>
-        /// Асинхронно записывает объект Project в файл с контактами
+        /// Асинхронно записывает строку в файл
         /// </summary>
-        /// <param name="project">Объект Project</param>
+        /// <param name="data">Строка данных для записи в файл</param>
+        /// <param name="path">Путь до файла</param>
         /// <returns></returns>
         /// <exception cref="ProjectReadingException">Выбрасывается в случае ошибки записи</exception>
         public static async Task SaveFileAsync(string data, string path)
