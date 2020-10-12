@@ -50,6 +50,7 @@
         <Compile Include="ModelsTests\ContactTest.cs" />
         <Compile Include="ModelsTests\PhoneNumberTest.cs" />
         <Compile Include="ProjectManagerTest.cs" />
+        <Compile Include="ProjectTest.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
     <ItemGroup>
