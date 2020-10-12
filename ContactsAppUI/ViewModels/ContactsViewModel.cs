@@ -12,13 +12,13 @@ namespace ContactsAppUI.ViewModels
 
         public async Task LoadProject()
         {
-            _project = await ProjectManager.Current.Load();
+            _project = await ProjectManager.Current.LoadAsync();
         }
         
         public async Task SaveProject(Project project)
         {
             _project = project;
-            await ProjectManager.Current.Save(_project);
+            await ProjectManager.Current.SaveAsync(_project);
         }
 
         public List<Contact> GetSortedContacts() => _project.GetSorted();

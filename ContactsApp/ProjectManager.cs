@@ -7,12 +7,12 @@ namespace ContactsApp
 {
     public class ProjectManager
     {
-        public async Task<Project> Load()
+        public async Task<Project> LoadAsync()
         {
             // Создание папки приложения в случае её отсутствия
             FileWorker.CreateFolder(Settings.AppDirectory);
             if (!File.Exists(Settings.ContactsDataFile))
-                await Create();
+                await CreateAsync();
             // Асинхронное чтение файла
             string data = await FileWorker.ReadFileAsync(Settings.ContactsDataFile);
             // Десериализация полученных данных
@@ -20,7 +20,7 @@ namespace ContactsApp
             return project;
         }
 
-        public async Task Save(Project project)
+        public async Task SaveAsync(Project project)
         {
             // Создание папки приложения в случае её отсутствия
             FileWorker.CreateFolder(Settings.AppDirectory);
@@ -30,9 +30,9 @@ namespace ContactsApp
             await FileWorker.SaveFileAsync(data, Settings.ContactsDataFile);
         }
 
-        public async Task Create()
+        public async Task CreateAsync()
         {
-            await Save(new Project());
+            await SaveAsync(new Project());
         }
 
         #region Singleton

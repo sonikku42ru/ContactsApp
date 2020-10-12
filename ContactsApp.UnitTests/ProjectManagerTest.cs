@@ -61,7 +61,7 @@ namespace ContactsApp.UnitTests
                 stream.Seek(0, SeekOrigin.End);
                 await stream.WriteAsync(array, 0, array.Length);
                 stream.Close();
-                await ProjectManager.Current.Load();
+                await ProjectManager.Current.LoadAsync();
             });
         }
     }
