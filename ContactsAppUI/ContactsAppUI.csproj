@@ -24,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <ApplicationIcon>Assets/ContactsIcon.ico</ApplicationIcon>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
@@ -31,6 +32,13 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PreBuildEvent>md $(SolutionDir)InstallScripts\Release</PreBuildEvent>
+    <PostBuildEvent>
+      xcopy $(ProjectDir)$(OutDir)*.exe $(SolutionDir)InstallScripts\Release
+      xcopy $(ProjectDir)$(OutDir)*.dll $(SolutionDir)InstallScripts\Release
+      "%InnoSetupCompiler%" $(SolutionDir)InstallScripts\InstallScript.iss
+      rmdir /S /Q $(SolutionDir)InstallScripts\Release
+    </PostBuildEvent>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
