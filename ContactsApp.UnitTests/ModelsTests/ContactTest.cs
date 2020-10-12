@@ -112,18 +112,17 @@ namespace ContactsApp.UnitTests.ModelsTests
             Assert.AreEqual(expected, actual, "Birthday getter returned unexpected value");
         }
 
-        [Test(Description = "Negative Birthday setter test: setting the date too early")]
-        public void TestBirthdaySet_TooEarly()
+        [TestCase("1.1.3000",
+            "An attempt to set the birthday date too late.",
+            TestName = "Negative Birthday setter test: setting the date too late")]
+        [TestCase("1.1.1899",
+            "An attempt to assign too short value should result in an exception.",
+            TestName = "Negative Birthday setter test: setting the date too late")]
+        [Test(Description = "Negative Birthday setter test: setting incorrect dates")]
+        public void TestBirthdaySet_TooLate(string incorrect, string message)
         {
-            var incorrect = new DateTime(1899,1,1);
-            Assert.Throws<ArgumentException>(() => _contact.Birthday = incorrect);
-        }
-        
-        [Test(Description = "Negative Birthday setter test: setting the date too late")]
-        public void TestBirthdaySet_TooLate()
-        {
-            var incorrect = DateTime.Today + TimeSpan.FromDays(1);
-            Assert.Throws<ArgumentException>(() => _contact.Birthday = incorrect);
+            var date = DateTime.Parse(incorrect);
+            Assert.Throws<ArgumentException>(() => _contact.Birthday = date);
         }
     }
 }
