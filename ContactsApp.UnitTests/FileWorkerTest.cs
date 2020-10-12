@@ -37,5 +37,12 @@ namespace ContactsApp.UnitTests
             string actual = await FileWorker.ReadFileAsync(File);
             Assert.AreEqual(expected, actual, "Written data differs with expected.");
         }
+
+        [Test(Description = "Creating folder test")]
+        public void FileWorkerTest_CreateFolder()
+        {
+            FileWorker.CreateFolder(Folder);
+            Assert.IsTrue(Directory.Exists(Folder));
+        }
     }
 }
