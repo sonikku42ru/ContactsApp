@@ -32,10 +32,32 @@ namespace ContactsApp.UnitTests.ModelsTests
         [TestCase("-9000",
             "An attempt to assign negative value should result in an exception.",
             TestName = "Negative Number setter test: trying to set negative number")]
+        [TestCase("0",
+            "An attempt to assign zero should result in an exception.",
+            TestName = "Negative Number setter test: trying to set zero")]
         public void TestNumberSet_IncorrectNumber(string incorrect, string message)
         {
             long wrong = long.Parse(incorrect);
             Assert.Throws<ArgumentException>(() => { _phoneNumber.Number = wrong; });
         }
+
+        [TestCase("111",
+            "An attempt to check too short number should return false",
+            TestName = "Number validation test: too short value")]
+        [TestCase("12345678901234",
+            "An attempt to check too long number should return false",
+            TestName = "Number validation test: too long value")]
+        public void TestValidation_IncorrectNumbers(string value, string message)
+        {
+            long val = long.Parse(value);
+            Assert.IsFalse(PhoneNumber.IsValid(val));
+        }
+        
+        [Test(Description = "Number validation test: correct value")]
+        public void TestValidation_CorrectNumber()
+        {
+            long val = 79008007000;
+            Assert.IsTrue(PhoneNumber.IsValid(val));
+        } 
     }
 }
