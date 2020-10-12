@@ -40,8 +40,8 @@ namespace ContactsApp.UnitTests.ModelsTests
         public void TestFirstNameGet_CorrectValue()
         {
             var expected = "Dave";
-            _contact.LastName = expected;
-            string actual = _contact.LastName;
+            _contact.FirstName = expected;
+            string actual = _contact.FirstName;
             Assert.AreEqual(expected, actual, "FirstName getter returned unexpected value");
         }
 
@@ -61,8 +61,8 @@ namespace ContactsApp.UnitTests.ModelsTests
         public void TestEmailGet_CorrectValue()
         {
             var expected = "duke_nukem@edf.gov";
-            _contact.LastName = expected;
-            string actual = _contact.LastName;
+            _contact.Email = expected;
+            string actual = _contact.Email;
             Assert.AreEqual(expected, actual, "Email getter returned unexpected value");
         }
         
@@ -79,8 +79,8 @@ namespace ContactsApp.UnitTests.ModelsTests
         public void TestIdVkGet_CorrectValue()
         {
             var expected = "iddqd";
-            _contact.LastName = expected;
-            string actual = _contact.LastName;
+            _contact.IdVk = expected;
+            string actual = _contact.IdVk;
             Assert.AreEqual(expected, actual, "IdVk getter returned unexpected value");
         }
         
@@ -88,11 +88,11 @@ namespace ContactsApp.UnitTests.ModelsTests
         public void TestIdVkSet_TooLongValue()
         {
             var incorrect = "whatta heck is you goddamn id man can i just pass this mess asap plz i rly need it";
-            Assert.Throws<ArgumentException>(() => { _contact.Email = incorrect; });
+            Assert.Throws<ArgumentException>(() => { _contact.IdVk = incorrect; });
         }
         
         // Testing phone number
-        
+
         [Test(Description = "Positive PhoneNumber getter test")]
         public void TestPhoneNumberGet_CorrectValue()
         {
@@ -100,6 +100,30 @@ namespace ContactsApp.UnitTests.ModelsTests
             _contact.PhoneNumber = expected;
             long actual = _contact.PhoneNumber;
             Assert.AreEqual(expected, actual, "PhoneNumber getter returned unexpected value");
+        }
+        
+        // Testing Birthday
+        [Test(Description = "Positive Birthday getter test")]
+        public void TestBirthdayGet_CorrectValue()
+        {
+            var expected = new DateTime(1999,6,16);
+            _contact.Birthday = expected;
+            DateTime actual = _contact.Birthday;
+            Assert.AreEqual(expected, actual, "Birthday getter returned unexpected value");
+        }
+
+        [Test(Description = "Negative Birthday setter test: setting the date too early")]
+        public void TestBirthdaySet_TooEarly()
+        {
+            var incorrect = new DateTime(1899,1,1);
+            Assert.Throws<ArgumentException>(() => _contact.Birthday = incorrect);
+        }
+        
+        [Test(Description = "Negative Birthday setter test: setting the date too late")]
+        public void TestBirthdaySet_TooLate()
+        {
+            var incorrect = DateTime.Today + TimeSpan.FromDays(1);
+            Assert.Throws<ArgumentException>(() => _contact.Birthday = incorrect);
         }
     }
 }
