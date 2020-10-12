@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using ContactsApp.Models;
 
@@ -23,7 +24,7 @@ namespace ContactsApp
 
         public bool Equals(Project other)
         {
-            return Contacts.Equals(other.Contacts);
+            return Contacts.SequenceEqual(other.Contacts);
         }
     }
 }

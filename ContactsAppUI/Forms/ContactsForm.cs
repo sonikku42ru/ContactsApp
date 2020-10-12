@@ -119,7 +119,7 @@ namespace ContactsAppUI.Forms
         /// </summary>
         private void EditContact()
         {
-            (Contact, DialogResult) dialogResult = ShowEditDialog(_selectedContact.Clone());
+            (Contact, DialogResult) dialogResult = ShowEditDialog((Contact)_selectedContact.Clone());
             if (dialogResult.Item2 == DialogResult.OK)
                 _contactsViewModel.UpdateContact(_selectedContact,dialogResult.Item1);
             SwitchDetails(true);

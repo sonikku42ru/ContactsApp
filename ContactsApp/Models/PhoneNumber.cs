@@ -5,7 +5,7 @@ namespace ContactsApp.Models
     /// <summary>
     /// Класс "PhoneNumber" содержит в себе информацию о номере телефона
     /// </summary>
-    public class PhoneNumber
+    public class PhoneNumber : ICloneable, IEquatable<PhoneNumber>
     {
         private long _phoneNumber = 70000000000;
         private const int Length = 11;
@@ -50,7 +50,17 @@ namespace ContactsApp.Models
 
         public bool Equals(PhoneNumber other)
         {
+            if (other == null)
+                return false;
             return Number == other.Number;
+        }
+
+        public object Clone()
+        {
+            return new PhoneNumber()
+            {
+                Number = this.Number
+            };
         }
     }
 }

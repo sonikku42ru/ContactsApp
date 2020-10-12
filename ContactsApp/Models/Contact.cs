@@ -5,7 +5,7 @@ namespace ContactsApp.Models
     /// <summary>
     /// Класс "Contact" водержит информацию о контакте
     /// </summary>
-    public class Contact
+    public class Contact : ICloneable, IEquatable<Contact>
     {
         private static readonly DateTime MinDate = new DateTime(1900, 1, 1);
         private static readonly short MaxTextLength = 60;
@@ -132,7 +132,7 @@ namespace ContactsApp.Models
                    _phoneNumber.Equals(other._phoneNumber);
         }
 
-        public Contact Clone()
+        public object Clone()
         {
             return new Contact()
             {

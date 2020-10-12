@@ -18,6 +18,8 @@ namespace ContactsApp.UnitTests
         [SetUp]
         public void Init()
         {
+            Backup();
+            
             _project = new Project();
             
             Contact con1 = new Contact()
@@ -43,12 +45,30 @@ namespace ContactsApp.UnitTests
             _project.Contacts.Add(con1);
             _project.Contacts.Add(con2);
         }
-        
+
         [TearDown]
-        public void DeleteTrash()
+        public void TearDown()
+        {
+            DeleteTrash();
+            Restore();
+        }
+        
+        private void DeleteTrash()
         {
             if (System.IO.File.Exists(File))
                 System.IO.File.Delete(File);
+        }
+
+        private void Backup()
+        {
+            if (System.IO.File.Exists(File))
+                System.IO.File.Move(File, File + ".bak");
+        }
+
+        private void Restore()
+        {
+            if (System.IO.File.Exists(File + ".bak"))
+                System.IO.File.Move(File + ".bak", File);
         }
         
         [Test(Description = "Trying to load corrupted file")]
@@ -63,6 +83,15 @@ namespace ContactsApp.UnitTests
                 stream.Close();
                 await ProjectManager.Current.LoadAsync();
             });
+        }
+
+        [Test(Description = "Saving and loading project")]
+        public async Task ProjectManagerTest_SaveAndLoad()
+        {
+            await ProjectManager.Current.SaveAsync(_project);
+            var actual = await ProjectManager.Current.LoadAsync();
+            bool equals = actual.Equals(_project);
+            Assert.IsTrue(equals, "Loaded project differs from expected");
         }
     }
 }
