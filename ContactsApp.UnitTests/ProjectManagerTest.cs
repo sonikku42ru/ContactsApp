@@ -93,5 +93,14 @@ namespace ContactsApp.UnitTests
             bool equals = actual.Equals(_project);
             Assert.IsTrue(equals, "Loaded project differs from expected");
         }
+
+        [Test(Description = "Creating and loading empty project")]
+        public async Task ProjectManagerTest_CreateBlankProject()
+        {
+            await ProjectManager.Current.CreateAsync();
+            var actual = await ProjectManager.Current.LoadAsync();
+            bool equals = actual.Equals(new Project());
+            Assert.IsTrue(equals, "Created project is not blank");
+        }
     }
 }
