@@ -7,6 +7,10 @@ namespace ContactsApp
 {
     public class ProjectManager
     {
+        /// <summary>
+        /// Асинхронно загружает проект из файла
+        /// </summary>
+        /// <returns>Проект</returns>
         public async Task<Project> LoadAsync()
         {
             // Создание папки приложения в случае её отсутствия
@@ -20,6 +24,11 @@ namespace ContactsApp
             return project;
         }
 
+        /// <summary>
+        /// Асинхронно записывает проект в файл
+        /// </summary>
+        /// <param name="project">Проект</param>
+        /// <returns></returns>
         public async Task SaveAsync(Project project)
         {
             // Создание папки приложения в случае её отсутствия
@@ -30,6 +39,10 @@ namespace ContactsApp
             await FileWorker.SaveFileAsync(data, Settings.ContactsDataFile);
         }
 
+        /// <summary>
+        /// Создание нового файла проекта
+        /// </summary>
+        /// <returns></returns>
         public async Task CreateAsync()
         {
             await SaveAsync(new Project());

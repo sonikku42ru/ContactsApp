@@ -43,6 +43,11 @@ namespace ContactsApp.Models
             return (int)Math.Ceiling(Math.Log10(Math.Abs(phone) + 0.5));
         }
 
+        /// <summary>
+        /// Проверяет корректность номера телефона
+        /// </summary>
+        /// <param name="phone">Номер телефона</param>
+        /// <returns>Истина, если номер корректен, иначе ложь.</returns>
         public static bool IsValid(long phone)
         {
             return Digits(phone) == Length;

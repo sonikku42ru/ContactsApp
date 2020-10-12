@@ -2,6 +2,9 @@
 
 namespace ContactsApp
 {
+    /// <summary>
+    /// Класс со статическими константами
+    /// </summary>
     public static class Settings
     {
         // Путь к папке %APPDATA% текущего пользователя
