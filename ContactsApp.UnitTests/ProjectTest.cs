@@ -6,6 +6,9 @@ using NUnit.Framework;
 
 namespace ContactsApp.UnitTests
 {
+    /// <summary>
+    /// Юнит-тесты Project
+    /// </summary>
     [TestFixture]
     public class ProjectTest
     {
@@ -14,6 +17,7 @@ namespace ContactsApp.UnitTests
         [SetUp]
         public void Init()
         {
+            // Инициализация
             _project = new Project();
             
             Contact con1 = new Contact()
@@ -40,6 +44,9 @@ namespace ContactsApp.UnitTests
             _project.Contacts.Add(con2);
         }
 
+        /// <summary>
+        /// Позитивный тест сортировки контактов
+        /// </summary>
         [Test(Description = "Positive contacts sorting test")]
         public void ProjectTest_GetCorrectSortedList()
         {
@@ -48,6 +55,9 @@ namespace ContactsApp.UnitTests
             Assert.AreEqual(expected, actual, "Contacts list sorted wrong");
         }
 
+        /// <summary>
+        /// Негативный тест сортировки контактов
+        /// </summary>
         [Test(Description = "Negative contacts sorting test")]
         public void ProjectTest_GetIncorrectSortedList()
         {
@@ -56,6 +66,9 @@ namespace ContactsApp.UnitTests
             Assert.AreNotEqual(expected, actual, "Contacts list sorted wrong");
         }
 
+        /// <summary>
+        /// Позитивный тест поиска контактов
+        /// </summary>
         [Test(Description = "Positive contacts searching test")]
         public void ProjectTest_GetFoundContactsList()
         {
@@ -67,6 +80,9 @@ namespace ContactsApp.UnitTests
             Assert.AreEqual(expected, _project.FindSorted(query), "Found different sequences");
         }
 
+        /// <summary>
+        /// Негативный тест поиска контактов
+        /// </summary>
         [Test(Description = "Searching for non-exist values test")]
         public void ProjectTest_FindNothingTest()
         {
@@ -75,6 +91,9 @@ namespace ContactsApp.UnitTests
             Assert.AreEqual(expected, actual, "Found values that shouldn't be found");
         }
 
+        /// <summary>
+        /// Позитивный тест поиска именинников
+        /// </summary>
         [Test(Description = "Positive birthdays selection test")]
         public void ProjectTest_GetBirthdaysList()
         {
@@ -86,6 +105,9 @@ namespace ContactsApp.UnitTests
             Assert.AreEqual(expected, _project.GetBirthdays(date), "Birthdays sequences are different");
         }
 
+        /// <summary>
+        /// Негативный тест поиска именинников
+        /// </summary>
         [Test(Description = "Searching for non-exist birthdays test")]
         public void ProjectTest_LookForNoBirthdays()
         {

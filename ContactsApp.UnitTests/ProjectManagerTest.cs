@@ -8,16 +8,21 @@ using NUnit.Framework;
 
 namespace ContactsApp.UnitTests
 {
+    /// <summary>
+    /// Юнит-тесты ProjectManager
+    /// </summary>
     [TestFixture]
     public class ProjectManagerTest
     {
         private Project _project;
         
+        // Путь до файла контактов
         private static readonly string File = Settings.ContactsDataFile;
         
         [SetUp]
         public void Init()
         {
+            // Бэкап уже существующего файла контактов
             Backup();
             
             _project = new Project();
@@ -53,24 +58,36 @@ namespace ContactsApp.UnitTests
             Restore();
         }
         
+        /// <summary>
+        /// Удаление мусора после тестов
+        /// </summary>
         private void DeleteTrash()
         {
             if (System.IO.File.Exists(File))
                 System.IO.File.Delete(File);
         }
 
+        /// <summary>
+        /// Бэкап уже существующего файла контактов
+        /// </summary>
         private void Backup()
         {
             if (System.IO.File.Exists(File))
                 System.IO.File.Move(File, File + ".bak");
         }
 
+        /// <summary>
+        /// Восстановление файла контактов после тестов
+        /// </summary>
         private void Restore()
         {
             if (System.IO.File.Exists(File + ".bak"))
                 System.IO.File.Move(File + ".bak", File);
         }
         
+        /// <summary>
+        /// Негативный тест: попытка загрузить мусор из файла проекта
+        /// </summary>
         [Test(Description = "Trying to load corrupted file")]
         public void ProjectManagerTest_ReadCorruptedFile()
         {
@@ -85,6 +102,10 @@ namespace ContactsApp.UnitTests
             });
         }
 
+        /// <summary>
+        /// Позитивный тест записи проекта
+        /// </summary>
+        /// <returns></returns>
         [Test(Description = "Saving and loading project")]
         public async Task ProjectManagerTest_SaveAndLoad()
         {
@@ -94,6 +115,10 @@ namespace ContactsApp.UnitTests
             Assert.IsTrue(equals, "Loaded project differs from expected");
         }
 
+        /// <summary>
+        /// Позитивный тест создания пустого проекта
+        /// </summary>
+        /// <returns></returns>
         [Test(Description = "Creating and loading empty project")]
         public async Task ProjectManagerTest_CreateBlankProject()
         {

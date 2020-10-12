@@ -4,6 +4,9 @@ using NUnit.Framework;
 
 namespace ContactsApp.UnitTests.ModelsTests
 {
+    /// <summary>
+    /// Юнит-тесты Contact
+    /// </summary>
     [TestFixture]
     public class ContactTest
     {
@@ -12,11 +15,15 @@ namespace ContactsApp.UnitTests.ModelsTests
         [SetUp]
         public void Init()
         {
+            // Инициализация
             _contact = new Contact();
         }
 
         // Testing LastName
         
+        /// <summary>
+        /// Позитивный тест геттера LastName
+        /// </summary>
         [Test(Description = "Positive LastName getter test")]
         public void TestLastNameGet_CorrectValue()
         {
@@ -26,6 +33,9 @@ namespace ContactsApp.UnitTests.ModelsTests
             Assert.AreEqual(expected, actual, "LastName getter returned unexpected value");
         }
 
+        /// <summary>
+        /// Негативный тест сеттера LastName: присвоение слишком длинной фамилии
+        /// </summary>
         [Test(Description = "Negative LastName setter test: setting too long value")]
         public void TestLastNameSet_TooLongValue()
         {
@@ -36,6 +46,9 @@ namespace ContactsApp.UnitTests.ModelsTests
         
         // Testing FirstName
         
+        /// <summary>
+        /// Позитивный тест геттера FirstName
+        /// </summary>
         [Test(Description = "Positive FirstName getter test")]
         public void TestFirstNameGet_CorrectValue()
         {
@@ -45,6 +58,9 @@ namespace ContactsApp.UnitTests.ModelsTests
             Assert.AreEqual(expected, actual, "FirstName getter returned unexpected value");
         }
 
+        /// <summary>
+        /// Негативный тест сеттера FirstName: присвоение слишком длинного имени
+        /// </summary>
         [Test(Description = "Negative FirstName setter test: setting too long value")]
         public void TestFirstNameSet_TooLongValue()
         {
@@ -57,6 +73,9 @@ namespace ContactsApp.UnitTests.ModelsTests
         
         // Testing E-Mail
         
+        /// <summary>
+        /// Позитивный тест геттера Email
+        /// </summary>
         [Test(Description = "Positive Email getter test")]
         public void TestEmailGet_CorrectValue()
         {
@@ -66,6 +85,9 @@ namespace ContactsApp.UnitTests.ModelsTests
             Assert.AreEqual(expected, actual, "Email getter returned unexpected value");
         }
         
+        /// <summary>
+        /// Негативный тест сеттера Email: присвоение слишком длинного E-Mail
+        /// </summary>
         [Test(Description = "Negative Email setter test: setting too long value")]
         public void TestEmailSet_TooLongValue()
         {
@@ -75,6 +97,9 @@ namespace ContactsApp.UnitTests.ModelsTests
         
         // Testing VK ID
         
+        /// <summary>
+        /// Позитивный тест геттера IdVk
+        /// </summary>
         [Test(Description = "Positive IdVk getter test")]
         public void TestIdVkGet_CorrectValue()
         {
@@ -84,6 +109,9 @@ namespace ContactsApp.UnitTests.ModelsTests
             Assert.AreEqual(expected, actual, "IdVk getter returned unexpected value");
         }
         
+        /// <summary>
+        /// Негативный тест сеттера IdVk: присвоение слишком длинного ID
+        /// </summary>
         [Test(Description = "Negative IdVk setter test: setting too long value")]
         public void TestIdVkSet_TooLongValue()
         {
@@ -93,6 +121,9 @@ namespace ContactsApp.UnitTests.ModelsTests
         
         // Testing phone number
 
+        /// <summary>
+        /// Позитивный тест геттера PhoneNumber
+        /// </summary>
         [Test(Description = "Positive PhoneNumber getter test")]
         public void TestPhoneNumberGet_CorrectValue()
         {
@@ -103,6 +134,10 @@ namespace ContactsApp.UnitTests.ModelsTests
         }
         
         // Testing Birthday
+        
+        /// <summary>
+        /// Позитивный тест геттера Birthday
+        /// </summary>
         [Test(Description = "Positive Birthday getter test")]
         public void TestBirthdayGet_CorrectValue()
         {
@@ -112,6 +147,11 @@ namespace ContactsApp.UnitTests.ModelsTests
             Assert.AreEqual(expected, actual, "Birthday getter returned unexpected value");
         }
 
+        /// <summary>
+        /// Негативный тест сеттера Birthday: присвоение некорректных дат
+        /// </summary>
+        /// <param name="incorrect">Некорректная дата</param>
+        /// <param name="message">Сообщение об ошибке</param>
         [TestCase("1.1.3000",
             "An attempt to set the birthday date too late.",
             TestName = "Negative Birthday setter test: setting the date too late")]

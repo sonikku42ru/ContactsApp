@@ -4,6 +4,9 @@ using NUnit.Framework;
 
 namespace ContactsApp.UnitTests.ModelsTests
 {
+    /// <summary>
+    /// Юнит-тесты PhoneNumber
+    /// </summary>
     [TestFixture]
     public class PhoneNumberTest
     {
@@ -12,9 +15,13 @@ namespace ContactsApp.UnitTests.ModelsTests
         [SetUp]
         public void Init()
         {
+            // Инициализация
             _phoneNumber = new PhoneNumber();
         }
 
+        /// <summary>
+        /// Позитивный тест геттера Number
+        /// </summary>
         [Test(Description = "Positive Number getter test")]
         public void TestNumberGet_CorrectValue()
         {
@@ -23,6 +30,11 @@ namespace ContactsApp.UnitTests.ModelsTests
             Assert.AreEqual(expected,_phoneNumber.Number, "Number getter returned unexpected value");
         }
 
+        /// <summary>
+        /// Негативный тест сеттера Number: присвоение некорректных значений
+        /// </summary>
+        /// <param name="incorrect">Некорректный номер телефона</param>
+        /// <param name="message">Сообщение об ошибке</param>
         [TestCase("9091240912049240",
             "An attempt to assign too long value should result in an exception.",
             TestName = "Negative Number setter test: trying to set too long number")]
@@ -41,6 +53,11 @@ namespace ContactsApp.UnitTests.ModelsTests
             Assert.Throws<ArgumentException>(() => { _phoneNumber.Number = wrong; });
         }
 
+        /// <summary>
+        /// Тест на корректность работы валидации номера: некорректные случаи
+        /// </summary>
+        /// <param name="value">Некорректный номер телефона</param>
+        /// <param name="message">Сообщение об ошибке</param>
         [TestCase("111",
             "An attempt to check too short number should return false",
             TestName = "Number validation test: too short value")]
@@ -53,6 +70,9 @@ namespace ContactsApp.UnitTests.ModelsTests
             Assert.IsFalse(PhoneNumber.IsValid(val));
         }
         
+        /// <summary>
+        /// Тест на корректность работы валидации номера: корректный случай
+        /// </summary>
         [Test(Description = "Number validation test: correct value")]
         public void TestValidation_CorrectNumber()
         {
