@@ -6,60 +6,108 @@ using ContactsApp.Models;
 
 namespace ContactsAppUI.ViewModels
 {
+    /// <summary>
+    /// ViewModel для основной формы
+    /// </summary>
     public class ContactsViewModel
     {
         private Project _project;
 
-        public async Task LoadProject()
+        /// <summary>
+        /// Асинхронно загружает проект
+        /// </summary>
+        /// <returns></returns>
+        public async Task LoadProjectAsync()
         {
             _project = await ProjectManager.Current.LoadAsync();
         }
         
-        public async Task SaveProject(Project project)
+        /// <summary>
+        /// Асинхронно сохраняет проект
+        /// </summary>
+        /// <param name="project">Проект</param>
+        /// <returns></returns>
+        public async Task SaveProjectAsync(Project project)
         {
             _project = project;
             await ProjectManager.Current.SaveAsync(_project);
         }
 
+        /// <summary>
+        /// Возвращает отсортированный по фамилиям в алфавитном порядке список контактов
+        /// </summary>
+        /// <returns>Список контактов</returns>
         public List<Contact> GetSortedContacts() => _project.GetSorted();
 
+        /// <summary>
+        /// Возвращает отсортированный по фамилиям список именинников
+        /// </summary>
+        /// <param name="date">Дата рождения</param>
+        /// <returns>Список именинников</returns>
         public List<Contact> GetBirthdays(DateTime date) => _project.GetBirthdays(date);
 
+        /// <summary>
+        /// Возвращает список контактов, начинающихся с заданной подстроки
+        /// </summary>
+        /// <param name="lastName">Фамилия</param>
+        /// <returns>Список контактов</returns>
         public List<Contact> Find(string lastName) => _project.FindSorted(lastName);
 
+        /// <summary>
+        /// Добавляет контакт в список контактов
+        /// </summary>
+        /// <param name="contact">Контакт</param>
         public void AddContact(Contact contact)
         {
             _project.Contacts.Add(contact);
             int index = _project.Contacts.IndexOf(contact);
             OnContactsListChanged?.Invoke(this, 
                 new ContactsListChangedEventArgs(index));
-            Task.Run(async() => await SaveProject(_project));
+            Task.Run(async() => await SaveProjectAsync(_project));
         }
 
+        /// <summary>
+        /// Удаляет контакт из списка контактов
+        /// </summary>
+        /// <param name="contact">Контакт</param>
         public void RemoveContact(Contact contact)
         {
             int index = _project.Contacts.IndexOf(contact);
             _project.Contacts.Remove(contact);
             OnContactsListChanged?.Invoke(this, new ContactsListChangedEventArgs(index));
-            Task.Run(async() => await SaveProject(_project));
+            Task.Run(async() => await SaveProjectAsync(_project));
         } 
         
+        /// <summary>
+        /// Обновляет контакт в списке контактов
+        /// </summary>
+        /// <param name="oldContact">Обновляемый контакт</param>
+        /// <param name="newContact">Новый контакт</param>
         public void UpdateContact(Contact oldContact, Contact newContact)
         {
             int index = _project.Contacts.IndexOf(oldContact);
             _project.Contacts[index] = newContact;
             OnContactsListChanged?.Invoke(this, new ContactsListChangedEventArgs(index));
-            Task.Run(async() => await SaveProject(_project));
+            Task.Run(async() => await SaveProjectAsync(_project));
         }
 
         #region Nested events
         
         public delegate void ContactsListChangedHandler(object sender, ContactsListChangedEventArgs e);
 
+        /// <summary>
+        /// Событие, вызываемое при каждом изменении списка
+        /// </summary>
         public event ContactsListChangedHandler OnContactsListChanged;
 
+        /// <summary>
+        /// Класс аргументов события изменения списка
+        /// </summary>
         public class ContactsListChangedEventArgs : EventArgs
         {
+            /// <summary>
+            /// Индекс изменившегося элемента
+            /// </summary>
             public int Index { get; }
             
             public ContactsListChangedEventArgs(int index)

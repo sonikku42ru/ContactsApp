@@ -18,7 +18,7 @@ namespace ContactsAppUI
             try
             {
                 var contactsViewModel = new ContactsViewModel();
-                await contactsViewModel.LoadProject();
+                await contactsViewModel.LoadProjectAsync();
                 var contactsForm = new ContactsForm(contactsViewModel);
                 Application.Run(contactsForm);
             }
