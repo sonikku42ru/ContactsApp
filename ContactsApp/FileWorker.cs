@@ -6,8 +6,17 @@ using Newtonsoft.Json;
 
 namespace ContactsApp
 {
+    /// <summary>
+    /// Класс для работы с файлами на диске
+    /// </summary>
     public static class FileWorker
     {
+        /// <summary>
+        /// Асинхронно читает файл с диска
+        /// </summary>
+        /// <param name="path">Путь до файла</param>
+        /// <returns>Строка данных из файла</returns>
+        /// <exception cref="ProjectReadingException">Исключение при чтении файла</exception>
         public static async Task<string> ReadFileAsync(string path)
         {
             try
