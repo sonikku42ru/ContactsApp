@@ -7,18 +7,48 @@ namespace ContactsApp.Models
     /// </summary>
     public class Contact : ICloneable, IEquatable<Contact>
     {
+        /// <summary>
+        /// Минимально допустимая дата рождения
+        /// </summary>
         private static readonly DateTime MinDate = new DateTime(1900, 1, 1);
+        
+        /// <summary>
+        /// Максимальная длина текстовых полей
+        /// </summary>
         private static readonly short MaxTextLength = 60;
 
+        /// <summary>
+        /// Фамилия контакта
+        /// </summary>
         private string _lastName = "";
+        
+        /// <summary>
+        /// Имя контакта
+        /// </summary>
         private string _firstName = "";
+        
+        /// <summary>
+        /// Дата рождения контакта
+        /// </summary>
         private DateTime _birthday = DateTime.Today;
+        
+        /// <summary>
+        /// E-Mail контакта
+        /// </summary>
         private string _email = "";
+        
+        /// <summary>
+        /// ID ВКонтакте контакта
+        /// </summary>
         private string _idVk = "";
+        
+        /// <summary>
+        /// Номер телефона контакта
+        /// </summary>
         private PhoneNumber _phoneNumber = new PhoneNumber();
 
         /// <summary>
-        /// Свойство "PhoneNumber" хранит в себе номер телефона контакта
+        /// Свойство "PhoneNumber" получает и возвращает номер телефона контакта
         /// </summary>
         public long PhoneNumber
         {
@@ -27,7 +57,7 @@ namespace ContactsApp.Models
         }
 
         /// <summary>
-        /// Свойство "Birthday" хранит в себе дату рождения контакта. Дата рождения не может быть ранее 1.1.1900
+        /// Свойство "Birthday" получает и возвращает дату рождения контакта. Дата рождения не может быть ранее 1.1.1900
         /// </summary>
         /// <exception cref="ArgumentException">Выбрасывается при попытке присвоить дату рождения ранее
         /// 1.1.1900</exception>
@@ -45,7 +75,7 @@ namespace ContactsApp.Models
         }
 
         /// <summary>
-        /// Свойство "LastName" хранит в себе фамилию контакта.
+        /// Свойство "LastName" получает и возвращает фамилию контакта.
         /// </summary>
         /// <exception cref="ArgumentException">Выбрасывается в случае присвоения слишком длинной фамилии.</exception>
         public string LastName
@@ -62,7 +92,7 @@ namespace ContactsApp.Models
         }
         
         /// <summary>
-        /// Свойство "FirstName" хранит в себе имя контакта.
+        /// Свойство "FirstName" получает и возвращает имя контакта.
         /// </summary>
         /// <exception cref="ArgumentException">Выбрасывается в случае присвоения слишком длинного имени.</exception>
         public string FirstName
@@ -79,7 +109,7 @@ namespace ContactsApp.Models
         }
 
         /// <summary>
-        /// Свойство "Email" хранит в себе E-Mail контакта.
+        /// Свойство "Email" получает и возвращает E-Mail контакта.
         /// </summary>
         /// <exception cref="ArgumentException">Выбрасывается в случае присвоения слишком длинного E-Mail.</exception>
         public string Email
@@ -96,7 +126,7 @@ namespace ContactsApp.Models
         }
 
         /// <summary>
-        /// Свойство "IdVk" хранит в себе VK ID контакта.
+        /// Свойство "IdVk" получает и возвращает VK ID контакта.
         /// </summary>
         /// <exception cref="ArgumentException">Выбрасывается в случае присвоения слишком длинного VK ID.</exception>
         public string IdVk

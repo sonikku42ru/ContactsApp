@@ -5,6 +5,9 @@ using Newtonsoft.Json;
 
 namespace ContactsApp
 {
+    /// <summary>
+    /// Класс осуществляет загрузку и сохранение Project
+    /// </summary>
     public class ProjectManager
     {
         /// <summary>
