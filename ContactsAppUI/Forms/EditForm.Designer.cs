@@ -43,11 +43,11 @@ namespace ContactsAppUI.Forms
             this.textBox_Email = new System.Windows.Forms.TextBox();
             this.textBox_IdVk = new System.Windows.Forms.TextBox();
             this.dateTimePicker_Birthday = new System.Windows.Forms.DateTimePicker();
-            this.maskedTextBox_Phone = new System.Windows.Forms.MaskedTextBox();
             this.label_LastName = new System.Windows.Forms.Label();
             this.button_Cancel = new System.Windows.Forms.Button();
             this.button_Ok = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.maskedTextBox_Phone = new System.Windows.Forms.MaskedTextBox();
             this.tableLayoutPanel_Edit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize) (this.errorProvider)).BeginInit();
             this.SuspendLayout();
@@ -73,8 +73,8 @@ namespace ContactsAppUI.Forms
             this.tableLayoutPanel_Edit.Controls.Add(this.textBox_Email, 1, 4);
             this.tableLayoutPanel_Edit.Controls.Add(this.textBox_IdVk, 1, 5);
             this.tableLayoutPanel_Edit.Controls.Add(this.dateTimePicker_Birthday, 1, 2);
-            this.tableLayoutPanel_Edit.Controls.Add(this.maskedTextBox_Phone, 1, 3);
             this.tableLayoutPanel_Edit.Controls.Add(this.label_LastName, 0, 0);
+            this.tableLayoutPanel_Edit.Controls.Add(this.maskedTextBox_Phone, 1, 3);
             this.tableLayoutPanel_Edit.Location = new System.Drawing.Point(12, 12);
             this.tableLayoutPanel_Edit.Name = "tableLayoutPanel_Edit";
             this.tableLayoutPanel_Edit.RowCount = 6;
@@ -203,19 +203,6 @@ namespace ContactsAppUI.Forms
             this.dateTimePicker_Birthday.Size = new System.Drawing.Size(319, 23);
             this.dateTimePicker_Birthday.TabIndex = 2;
             // 
-            // maskedTextBox_Phone
-            // 
-            this.maskedTextBox_Phone.Anchor =
-                ((System.Windows.Forms.AnchorStyles) ((((System.Windows.Forms.AnchorStyles.Top |
-                                                         System.Windows.Forms.AnchorStyles.Bottom) |
-                                                        System.Windows.Forms.AnchorStyles.Left) |
-                                                       System.Windows.Forms.AnchorStyles.Right)));
-            this.maskedTextBox_Phone.Location = new System.Drawing.Point(174, 90);
-            this.maskedTextBox_Phone.Mask = "+7 (000) 000-0000";
-            this.maskedTextBox_Phone.Name = "maskedTextBox_Phone";
-            this.maskedTextBox_Phone.Size = new System.Drawing.Size(319, 23);
-            this.maskedTextBox_Phone.TabIndex = 3;
-            // 
             // label_LastName
             // 
             this.label_LastName.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -252,6 +239,17 @@ namespace ContactsAppUI.Forms
             // 
             this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider.ContainerControl = this;
+            // 
+            // maskedTextBox_Phone
+            // 
+            this.maskedTextBox_Phone.Anchor =
+                ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Left |
+                                                       System.Windows.Forms.AnchorStyles.Right)));
+            this.maskedTextBox_Phone.Location = new System.Drawing.Point(174, 90);
+            this.maskedTextBox_Phone.Mask = "+7 (000) 000-0000";
+            this.maskedTextBox_Phone.Name = "maskedTextBox_Phone";
+            this.maskedTextBox_Phone.Size = new System.Drawing.Size(319, 23);
+            this.maskedTextBox_Phone.TabIndex = 3;
             // 
             // EditForm
             // 
@@ -290,7 +288,7 @@ namespace ContactsAppUI.Forms
         private System.Windows.Forms.Button button_Ok;
         private System.Windows.Forms.Button button_Cancel;
         private System.Windows.Forms.ErrorProvider errorProvider;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox_Phone;
         private System.Windows.Forms.DateTimePicker dateTimePicker_Birthday;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox_Phone;
     }
 }
