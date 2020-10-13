@@ -28,7 +28,7 @@ namespace ContactsApp.Models
             set
             {
                 // Если количество цифр в номере не равно 11, то выбрасывается исключение
-                if (IsValid(value))
+                if (!IsValid(value))
                     throw new ArgumentException("Номер должен состоять из " + Length.ToString() + " цифр");
                 // Если номер отрицательный, то выбрасывается исключение
                 if (value < 0)
