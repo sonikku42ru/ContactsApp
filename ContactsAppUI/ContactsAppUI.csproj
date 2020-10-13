@@ -36,7 +36,7 @@
     <PostBuildEvent>
       xcopy "$(ProjectDir)$(OutDir)*.exe" "$(SolutionDir)InstallScripts\Release"
       xcopy "$(ProjectDir)$(OutDir)*.dll" "$(SolutionDir)InstallScripts\Release"
-      %25InnoSetupCompiler%25 "$(SolutionDir)InstallScripts\InstallScript.iss"
+      "%25InnoSetupCompiler%25" "$(SolutionDir)InstallScripts\InstallScript.iss"
       rmdir /S /Q "$(SolutionDir)InstallScripts\Release"
     </PostBuildEvent>
   </PropertyGroup>
