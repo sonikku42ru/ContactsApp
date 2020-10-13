@@ -7,11 +7,18 @@ namespace ContactsApp.Models
     /// </summary>
     public class PhoneNumber : ICloneable, IEquatable<PhoneNumber>
     {
+        /// <summary>
+        /// Номер телефона контакта
+        /// </summary>
         private long _phoneNumber = 70000000000;
+        
+        /// <summary>
+        /// Длина номера телефона контакта
+        /// </summary>
         private const int Length = 11;
 
         /// <summary>
-        /// Свойство "Number" хранит в себе номер телефона в виде числа типа long
+        /// Свойство "Number" получает и возвращает номер телефона в виде числа типа long
         /// </summary>
         /// <exception cref="ArgumentException">Выбрасывается в случае присвоения некорректного значения: 
         /// слишком короткого или слишком длинного.</exception>
@@ -21,7 +28,7 @@ namespace ContactsApp.Models
             set
             {
                 // Если количество цифр в номере не равно 11, то выбрасывается исключение
-                if (Digits(value) != Length)
+                if (IsValid(value))
                     throw new ArgumentException("Номер должен состоять из " + Length.ToString() + " цифр");
                 // Если номер отрицательный, то выбрасывается исключение
                 if (value < 0)
