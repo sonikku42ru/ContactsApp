@@ -30,8 +30,14 @@ namespace ContactsAppUI
         }
 
         #region Signleton
+        /// <summary>
+        /// Реализация паттерна Синглтон. Инициализируется в момент первого обращения.
+        /// </summary>
         private static readonly Lazy<Launcher> Singleton = new Lazy<Launcher>();
 
+        /// <summary>
+        /// Возвращает текущее состояние синглтона
+        /// </summary>
         public static Launcher Current => Singleton.Value;
         #endregion
     }

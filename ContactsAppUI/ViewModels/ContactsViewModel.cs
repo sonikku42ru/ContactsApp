@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using ContactsApp;
 using ContactsApp.Models;
+using ContactsAppUI.Events;
 
 namespace ContactsAppUI.ViewModels
 {
@@ -11,6 +12,9 @@ namespace ContactsAppUI.ViewModels
     /// </summary>
     public class ContactsViewModel
     {
+        /// <summary>
+        /// Сущность проекта
+        /// </summary>
         private Project _project;
 
         /// <summary>
@@ -62,7 +66,7 @@ namespace ContactsAppUI.ViewModels
             _project.Contacts.Add(contact);
             int index = _project.Contacts.IndexOf(contact);
             OnContactsListChanged?.Invoke(this, 
-                new ContactsListChangedEventArgs(index));
+                new ContactsListChangedEvent.ContactsListChangedEventArgs(index));
             Task.Run(async() => await SaveProjectAsync(_project));
         }
 
@@ -74,7 +78,7 @@ namespace ContactsAppUI.ViewModels
         {
             int index = _project.Contacts.IndexOf(contact);
             _project.Contacts.Remove(contact);
-            OnContactsListChanged?.Invoke(this, new ContactsListChangedEventArgs(index));
+            OnContactsListChanged?.Invoke(this, new ContactsListChangedEvent.ContactsListChangedEventArgs(index));
             Task.Run(async() => await SaveProjectAsync(_project));
         } 
         
@@ -87,34 +91,16 @@ namespace ContactsAppUI.ViewModels
         {
             int index = _project.Contacts.IndexOf(oldContact);
             _project.Contacts[index] = newContact;
-            OnContactsListChanged?.Invoke(this, new ContactsListChangedEventArgs(index));
+            OnContactsListChanged?.Invoke(this, new ContactsListChangedEvent.ContactsListChangedEventArgs(index));
             Task.Run(async() => await SaveProjectAsync(_project));
         }
 
         #region Nested events
         
-        public delegate void ContactsListChangedHandler(object sender, ContactsListChangedEventArgs e);
-
         /// <summary>
         /// Событие, вызываемое при каждом изменении списка
         /// </summary>
-        public event ContactsListChangedHandler OnContactsListChanged;
-
-        /// <summary>
-        /// Класс аргументов события изменения списка
-        /// </summary>
-        public class ContactsListChangedEventArgs : EventArgs
-        {
-            /// <summary>
-            /// Индекс изменившегося элемента
-            /// </summary>
-            public int Index { get; }
-            
-            public ContactsListChangedEventArgs(int index)
-            {
-                Index = index;
-            }
-        }
+        public event ContactsListChangedEvent.ContactsListChangedHandler OnContactsListChanged;
         
         #endregion
     }
