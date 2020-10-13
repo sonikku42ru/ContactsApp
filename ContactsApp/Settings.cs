@@ -7,11 +7,20 @@ namespace ContactsApp
     /// </summary>
     public static class Settings
     {
-        // Путь к папке %APPDATA% текущего пользователя
+        /// <summary>
+        /// Путь к папке %APPDATA%
+        /// </summary>
         public static string AppData => Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-        // Путь к папке приложения ContactsApp
+        
+        /// <summary>
+        /// Путь к папке приложения
+        /// </summary>
         public static string AppDirectory => AppData + @"\ContactsApp";
-        // Путь к файлу с контактами
+        
+        
+        /// <summary>
+        /// Путь к файлу проекта
+        /// </summary>
         public static string ContactsDataFile => AppDirectory + @"\ContactsApp.notes";
     }
 }
