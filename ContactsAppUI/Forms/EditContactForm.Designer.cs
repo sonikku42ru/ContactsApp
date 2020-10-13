@@ -2,7 +2,7 @@
 
 namespace ContactsAppUI.Forms
 {
-    partial class EditForm
+    partial class EditContactForm
     {
         /// <summary>
         /// Required designer variable.
@@ -264,7 +264,7 @@ namespace ContactsAppUI.Forms
             this.MaximumSize = new System.Drawing.Size(775, 261);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(540, 261);
-            this.Name = "EditForm";
+            this.Name = "EditContactForm";
             this.Text = "Редактирование контакта";
             this.tableLayoutPanel_Edit.ResumeLayout(false);
             this.tableLayoutPanel_Edit.PerformLayout();

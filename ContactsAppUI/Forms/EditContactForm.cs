@@ -8,7 +8,7 @@ using ContactsAppUI.Converters;
 
 namespace ContactsAppUI.Forms
 {
-    public partial class EditForm : Form
+    public partial class EditContactForm : Form
     {
         /// <summary>
         /// Словарь соответствий контролов для отображения ErrorProvider на Label'ах, соответствующих
@@ -18,7 +18,7 @@ namespace ContactsAppUI.Forms
 
         public Contact Contact { get; private set; }
 
-        public EditForm(Contact contact)
+        public EditContactForm(Contact contact)
         {
             // Инициализация формы
             InitializeComponent();

@@ -232,7 +232,7 @@ namespace ContactsAppUI.Forms
         private (Contact, DialogResult) ShowEditDialog(Contact contact = null)
         {
             Enabled = false;
-            var editForm = new EditForm(contact ?? new Contact());
+            var editForm = new EditContactForm(contact ?? new Contact());
             (Contact, DialogResult) result;
             using (editForm)
             {
