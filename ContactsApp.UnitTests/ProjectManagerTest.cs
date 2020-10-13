@@ -103,7 +103,7 @@ namespace ContactsApp.UnitTests
         }
 
         /// <summary>
-        /// Позитивный тест записи проекта
+        /// Позитивный тест записи и чтения проекта
         /// </summary>
         /// <returns></returns>
         [Test(Description = "Saving and loading project")]
@@ -115,6 +115,19 @@ namespace ContactsApp.UnitTests
             Assert.IsTrue(equals, "Loaded project differs from expected");
         }
 
+        /// <summary>
+        /// Позитивный тест записи проекта
+        /// </summary>
+        /// <returns></returns>
+        [Test(Description = "Saving project test")]
+        public async Task ProjectManagerTest_Save()
+        {
+            await ProjectManager.Current.SaveAsync(_project);
+            var file = await FileWorker.ReadFileAsync(Settings.ContactsDataFile);
+            var actual = JsonConvert.DeserializeObject<Project>(file);
+            Assert.AreEqual(_project, actual, "File data differs with Project");
+        }
+        
         /// <summary>
         /// Позитивный тест создания пустого проекта
         /// </summary>

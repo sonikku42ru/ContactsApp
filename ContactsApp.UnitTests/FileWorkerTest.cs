@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
 using System.Threading.Tasks;
+using ContactsApp.Models;
+using Newtonsoft.Json;
 using NUnit.Framework;
 
 namespace ContactsApp.UnitTests
@@ -43,7 +45,7 @@ namespace ContactsApp.UnitTests
         /// </summary>
         /// <returns></returns>
         [Test(Description = "Writing file test")]
-        public async Task FileWorkerTest_WriteProject()
+        public async Task FileWorkerTest_LoadProject()
         {
             string expected = _testString;
             await FileWorker.SaveFileAsync(expected, File);
