@@ -37,9 +37,9 @@ Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "..\ContactsAppUI\bin\Release\ContactsAppUI.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\ContactsAppUI\bin\Release\ContactsApp.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\ContactsAppUI\bin\Release\Newtonsoft.Json.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Release\ContactsAppUI.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Release\ContactsApp.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Release\Newtonsoft.Json.dll"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
