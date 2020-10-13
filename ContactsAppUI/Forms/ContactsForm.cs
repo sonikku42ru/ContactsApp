@@ -13,6 +13,9 @@ using ContactsAppUI.ViewModels;
 
 namespace ContactsAppUI.Forms
 {
+    /// <summary>
+    /// Класс главной формы приложения
+    /// </summary>
     public partial class ContactsForm : Form
     {
         /// <summary>
@@ -256,8 +259,7 @@ namespace ContactsAppUI.Forms
         {
             SelectContact(listBox_Contacts.SelectedIndex);
         }
-        
-        // Основные кнопки
+       
         
         /// <summary>
         /// Обработчик события нажатия на кнопку "Добавить контакт"

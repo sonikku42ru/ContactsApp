@@ -8,6 +8,9 @@ using ContactsAppUI.Converters;
 
 namespace ContactsAppUI.Forms
 {
+    /// <summary>
+    /// Класс формы редактирования контактов
+    /// </summary>
     public partial class EditContactForm : Form
     {
         /// <summary>
@@ -16,6 +19,9 @@ namespace ContactsAppUI.Forms
         /// </summary>
         private Dictionary<Control, Control> _controlsDictionary;
 
+        /// <summary>
+        /// Возвращает редактируемый контакт
+        /// </summary>
         public Contact Contact { get; private set; }
 
         public EditContactForm(Contact contact)
