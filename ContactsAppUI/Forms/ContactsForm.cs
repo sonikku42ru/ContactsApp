@@ -125,7 +125,7 @@ namespace ContactsAppUI.Forms
             (Contact, DialogResult) dialogResult = ShowEditDialog((Contact)_selectedContact.Clone());
             if (dialogResult.Item2 == DialogResult.OK)
                 _contactsViewModel.UpdateContact(_selectedContact,dialogResult.Item1);
-            SwitchDetails(true);
+            UpdateData();
         }
 
         /// <summary>
